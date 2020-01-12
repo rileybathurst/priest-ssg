@@ -1,14 +1,27 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Logo from "../components/logo"
+import Menu from "../components/menu"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header>
+    <div class="bg-primary hero-logo">
+      <Logo />
+    </div>
+    <a herf="" data-open="my-info" class="h4 white-a">
+      <div class="hide-for-medium bg-secondary shadow-darker text-center gp-tb"> {/* small navigation */}
+        Menu
+      </div>
+    </a>
+
+    <div class="cell shrink show-for-medium bg-secondary shadow"> {/* medium up navigation */}
+      <nav>
+        <Menu></Menu>
+      </nav>{/* .main-navigation */}
+    </div>{/* medium up nav */}
+
+
     <div
       style={{
         margin: `0 auto`,
@@ -40,3 +53,4 @@ Header.defaultProps = {
 }
 
 export default Header
+

@@ -1,0 +1,1046 @@
+/* Contents
+-------------------------------------------------------------- */
+
+/*
+	1. full
+	2. Spacing
+	3. Sticky
+	4. Vimeo
+	5. Fixes
+	 5.2 Images
+	6. Off Canvas
+	7. Social Nav
+	8. Feature Cats
+	9. Comments
+	10. Genericons
+	11. Box
+	999. Required Worpess css
+	- 999.2 Gallery
+
+-------------------------------------------------------------- */
+
+/*  1.
+	Full width coloured background
+	This is first incase after this it needs more classes
+-------------------------------------------------------------- */
+
+/* Medium Up screens - fixes header issue
+@media only screen and (min-width: 40.063em) {
+	.full {
+	width: 100%;
+	}
+} */
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+$print-breakpoint: large;
+$breakpoint-classes: (small medium large); // should this not include all the way to xx if I have it above?
+
+$primary-color: #1e93bd;
+$secondary-color: #006087;
+$warning-color: #ffae00;
+
+$black: #0a0a0a;
+$white: #fefefe;
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-grid-gap: $global-margin;
+
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$header-font-family: 'Roboto Slab', serif;
+
+$page-width: 77em;
+
+body {
+    margin: 0; // briwser reset
+}
+
+html {
+    font-family: $body-font-family;
+}
+
+main {
+	max-width: 100vw;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    font-family: $header-font-family;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-primary {
+	background: $primary-color;
+
+	a {
+	color: $white;
+	}
+	a:hover {
+	color: $light-gray;
+	}
+	cite {
+	color: $medium-gray;
+	}
+}
+
+.bg-secondary {
+	background: $secondary-color;
+
+	a {
+	color: $white;
+	}
+	a:hover {
+	color: $light-gray;
+	}
+}
+
+.bg-light-gray {
+	background: $light-gray;
+}
+
+.bg-medium-gray {
+	background: $medium-gray;
+}
+
+.bg-dark-gray {
+	background: $dark-gray;
+
+	a {
+	color: $white;
+	}
+
+	a:hover {
+	color: $light-gray;
+	}
+}
+
+.bg-black {
+	background: $black;
+	color: $white;
+
+	.hidden-link {
+	color: $white;
+	}
+}
+
+.primary-text {
+	color: $primary-color;
+}
+
+.white-a {
+	color: $white;
+}
+
+
+white-a:hover {
+	color: $light-gray;
+	background: $black;
+}
+
+.hidden-link {
+	color: $black;
+}
+
+.shadow {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.shadow-darker {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.32),0 2px 10px 0 rgba(0,0,0,0.24);
+}
+
+.attachment-post-thumbnail {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.excerpt {
+	color: blue;
+}
+
+/*  2. Spacing
+	Used around the page for readability styling
+-------------------------------------------------------------- */
+
+.ngm-top {
+	margin-top: -$global-margin;
+}
+
+.ngm-bottom {
+	margin-bottom: -$global-margin;
+}
+
+.gm-top {
+	margin-top: $global-margin;
+}
+
+.gm-bottom {
+	margin-bottom: $global-margin;
+}
+
+.gm-tb {
+	margin-top: $global-margin;
+	margin-bottom: $global-margin;
+}
+
+.gp-top {
+	padding-top: $global-padding;
+}
+
+.gp2-top {
+	padding-top: $global-padding*2;
+}
+
+.gp-bottom {
+	padding-bottom: $global-padding;
+}
+
+.gp3-bottom {
+	padding-bottom: $global-padding*3;
+}
+
+.gp-tb {
+	padding-top: $global-margin;
+	padding-bottom: $global-margin;
+}
+
+.gp2-tb {
+	padding-top: $global-margin*2;
+	padding-bottom: $global-margin*2;
+}
+
+.gp-tb-large {
+	@media (min-width: map-get($breakpoints, large)) {
+		padding-top: $global-margin;
+		padding-bottom: $global-margin;
+	}
+}
+
+.gm-4 {
+	margin: $global-margin;
+}
+
+.gm-3 {
+	margin: 0 $global-margin $global-margin $global-margin; // top | right | bottom | left
+}
+
+.gp-4 {
+	padding: $global-padding;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+
+no-padding-top {
+	padding-top: 0;
+}
+
+/*
+	3 - Sticky
+	Wordpress and foundation both have base classes called sticky so this gives pressedant to wordpress
+--------------------------------------------------------------- */
+.sticky {
+	position: relative;
+}
+
+.sticky .featured-title {
+	background: $medium-gray;
+	display: block;
+	color: $white;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
+	background: $light-gray;
+}
+
+// wordpress controls this in a way it should be hidden
+.featured-title {
+	display: none;
+}
+
+/*  5 - Fixes - foundation 6 overwrite is written here so foundation can be updated
+-------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+}
+
+.one-point-two-em {
+	font-size: 1.2em;
+}
+
+/* p {
+	@include breakpoint(small) {
+	text-align: left;
+	}
+	@media (min-width: map-get($breakpoints, large)) {
+	text-align: justify;
+	}
+} */
+
+.bold-big {
+	font-weight: normal;
+
+	@media (min-width: map-get($breakpoints, large)) {
+	font-weight: bold;
+	}
+}
+
+nav, .menu-primary-container, .force-menu-style {
+	font-weight: bold;
+	font-size: 1.2em;
+	font-family: $header-font-family;
+}
+
+.menu {
+	justify-content: center;
+}
+
+.menu-primary-container a:hover {
+	background: #006087; // hack I need to make this from a variable
+}
+
+.menu li {
+	padding: $global-padding; // lets start setting a vertical rythm
+}
+
+/* Fix for automatic last-child float right from foundation */
+.lastchildleft li:last-child {
+	float: left !important;
+}
+
+/* Block grid can also be used */
+.odd-clear li:nth-child(odd) {
+	clear: both;
+}
+
+abbr[title] {
+	border-bottom: none;
+}
+abbr {
+	font-size: 100%;
+	text-decoration: underline;
+}
+
+/*
+	5.2 Images
+------------------------------------------------ */
+
+.img-100, .img-100 img {
+	width: 100%;
+}
+
+.img-100-high {
+	overflow-x: hidden;
+}
+
+// sets the height cuts the side
+.img-100-high img {
+	height: 100%;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+.hero {
+	display: grid;
+	max-width: 89.9em; // stops 3 or more columns
+	margin: $global-margin auto; // center float
+	padding: $global-padding; // small size never get to the edge
+	grid-gap: $global-margin;
+
+	// start doing columns once its bigger - slightly a hack
+	@media (min-width: map-get($breakpoints, medium)) {
+	grid-template-columns: repeat(auto-fill, minmax(30em,1fr));
+	}
+}
+
+/*
+	grids
+------------------------------------------------ */
+
+.site {
+	display: grid; // this just for the 100 vh but there might be a smarter way
+	min-height: 100vh;
+}
+
+footer {
+	align-self: end;
+}
+
+/*
+	service grids
+------------------------------------------------ */
+
+/*
+.hero-logo {
+	display: grid;
+	justify-items: center;
+}
+*/
+
+.hero-logo a {
+	display: block;
+	max-width: 33%;
+	margin: 0 auto;
+	padding-top: $global-padding*2; // start doing more with a type scale and vertical rythm
+	padding-bottom: $global-padding*3;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		max-width: 20%;
+	}
+}
+
+.service-grid { // well that name is now wrong
+	display: grid;
+	// grid-template-columns: 1;
+	// grid-template-rows: 1;
+}
+
+.service-grid img, .service-grid h4 {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.service-grid-bg {
+	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
+	align-self: end;
+}
+
+.inline-block-100w { // hack to make the a all the way across
+	display: inline-block;
+	width: 100%;
+}
+
+.service-grid-bg a {
+	color: $white;
+}
+
+.service-grid-bg a:hover {
+	color: $light-gray;
+}
+
+/*
+	display grids
+------------------------------------------------ */
+
+.display-grid { //terrible names
+	display: flex;
+	justify-items: center;
+}
+
+.grid-icon { //terrible names
+	grid-column: 1;
+	align-self: stretch;
+}
+
+.grid-text { //terrible names
+	grid-column: 2;
+	align-self: center;
+}
+
+.footer-icons {
+	display: grid;
+	justify-items: center;
+}
+
+.footer-icon-icon { //terrible names
+	grid-column: 1;
+	grid-row: 1;
+	align-self: center;
+
+	@media (min-width: map-get($breakpoints, large)) {
+	justify-self: end;
+	}
+}
+
+.footer-icon-icon svg {
+	fill: $primary-color;
+}
+
+.footer-icon-icon svg:hover {
+	fill: $secondary-color;
+}
+
+.footer-icon-text {
+	grid-column: 1;
+	grid-row: 2;
+	align-self: center;
+
+	@media (min-width: map-get($breakpoints, large)) {
+	grid-column: 2;
+	grid-row: 1;
+	justify-self: start;
+	}
+}
+
+.post-flex {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: map-get($breakpoints, large)) {
+	flex-direction: column-reverse;
+	}
+}
+
+.crown {
+	display: grid;
+	margin: $global-margin 0;
+}
+
+.poster-thumbnail {
+	grid-row: 1;
+	grid-column: 1;
+	z-index: -1;
+
+	img, video {
+	width: 100%;
+	}
+}
+
+.crown-title {
+	grid-row: 1;
+	grid-column: 1;
+	background: rgba(10,127,189,0.7);
+	padding: $global-padding;
+	align-self: end;
+	text-align: center;
+	color: $white;
+	margin-bottom: 6px; // guess and check
+}
+
+.poster {
+	display: grid;
+	grid-template-areas:
+	"postcard"
+	"bg"
+	"title"
+	"textual"
+	"gallery";
+	grid-gap: $global-margin;
+	grid-template-columns: 1fr;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+	grid-template-areas:
+	"postcard postcard"
+	"gallery  textual"
+	".        textual" // incase the text is longer than the images to stop things getting distored
+	;
+
+	grid-template-columns: 1fr 1fr;
+	}
+}
+
+
+
+.poster p, .poster ul { // causing issues as the wp-block-gallery is also a ul
+grid-column: 1;
+	@media (min-width: map-get($breakpoints, medium)) {
+		grid-column: 2;
+	}
+}
+
+.over-flex {
+	grid-area: postcard;
+	align-self: end;
+	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
+	color: $white;
+}
+
+.poster-text {
+	grid-area: textual;
+}
+
+.poster .wp-block-gallery {
+	// grid-area: gallery;
+	margin-left: 0;
+}
+
+
+// home page animation
+.cfimg {
+	display: grid;
+	justify-items: stretch;
+	align-items: stretch;
+}
+.cfimg picture {
+	grid-column: 1;
+	grid-row: 1;
+	animation-name: FadeInOut;
+	animation-duration: 16s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+/* Just do the link I dont understand the math */
+@keyframes FadeInOut {
+	0% {
+	opacity:1;
+	}
+	18.75% {
+	opacity:1;
+	}
+	25% {
+	opacity:0;
+	}
+	93.75% {
+	opacity:0;
+	}
+	100% {
+	opacity:1;
+	}
+}
+
+.cfimg picture:nth-of-type(1) {
+	animation-delay: 12s;
+}
+.cfimg picture:nth-of-type(2) {
+	animation-delay: 8s;
+}
+.cfimg picture:nth-of-type(3) {
+	animation-delay: 4s;
+}
+.cfimg picture:nth-of-type(4) {
+	animation-delay: 0;
+}
+
+
+
+/*  6 - Off Canvas
+--------------------------------------------------------------*/
+
+.off-canvas a {
+	color: $black;
+}
+
+/*
+	999
+	Required Worpess css - adapted from Twenty Sixteen
+------------------------------------------------------------- */
+
+.wp-caption {
+	max-width: 100%;
+}
+
+.wp-caption-text {
+	margin-top: $global-margin;
+	font-style: italic;
+}
+
+.screen-reader-text {
+	position: static !important;
+}
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+}
+
+.screen-reader-text {
+	position: absolute !important;
+}
+
+.gallery-caption {
+	font-style: italic;
+}
+
+img .alignleft {
+	padding-right: $global-padding;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+.alignright {
+	float: right;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/**
+ * 999.2 - Galleries
+ */
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	padding: $global-padding;
+	width: 100%;
+	vertical-align: bottom;
+}
+
+/* Small Up screens */
+@media only screen and (max-width: 40em) { /* min-width 1025px, large screens */
+
+	.gallery-columns-2 .gallery-item, .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item, .gallery-columns-5 .gallery-item, .gallery-columns-6 .gallery-item, .gallery-columns-7 .gallery-item, .gallery-columns-8 .gallery-item, .gallery-columns-9 .gallery-item {
+	max-width: 100%;
+	}
+}
+
+/* Medium Up screens */
+@media only screen and (min-width: 40.063em) { /* min-width 1025px, large screens */
+
+	.gallery-columns-2 .gallery-item, .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item, .gallery-columns-5 .gallery-item, .gallery-columns-6 .gallery-item, .gallery-columns-7 .gallery-item, .gallery-columns-8 .gallery-item, .gallery-columns-9 .gallery-item {
+	max-width: 50%;
+	}
+}
+
+/* Large Up screens */
+@media only screen and (min-width: 64.063em) { /* min-width 1025px, large screens */
+
+	.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+	}
+
+	.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+	}
+
+	.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+	}
+
+	.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+	}
+
+	.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+	}
+
+	.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+	}
+
+	.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+	}
+
+	.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+	}
+}
+
+.gallery-icon img {
+	margin: 0 auto;
+}
+
+.gallery-caption {
+	color: $medium-gray;
+	display: block;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	font-style: italic;
+	line-height: 1.6153846154;
+	padding-top: 0.5384615385em;
+}
+
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+	display: none;
+}
+
+
+
+
+
+.button.hollow {
+	font-weight: bold;
+}
+
+
+
+
+
+
+#header-contact-background {
+	background: $light-gray;
+	margin-bottom: $global-margin*2;
+	padding: $global-padding*2 $global-padding 0 $global-padding; // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
+}
+
+.header-contact {
+	max-width: 89.9em;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+
+	h3 {
+		margin-bottom: $global-margin*2;
+	}
+
+	@media (min-width: map-get($breakpoints, large)) {
+		flex-direction: row;
+
+		h3 { // once its in the row its a little different on the layout
+			margin-bottom: 0;
+			padding-right: $global-padding; // this is possibly causing the columns to be different sizes
+		}
+	}
+}
+
+.together {
+	display: inline-block;
+	width: 100%;
+}
+
+#header-contact--phone,
+#header-contact--place {
+	margin-bottom: $global-margin*2;
+}
+
+
+
+
+
+
+
+.grab {
+	grid-column: 1;
+	grid-row: 1;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+	grid-column: 2;
+	grid-row: 1;
+	}
+}
+
+.wp-block-gallery {
+	grid-column: 1;
+	grid-row: 2;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		grid-column: 1 !important; // trying to keep this inline but also control the ul for other lists
+		grid-row: 1;
+	}
+}
+
+
+// test
+.is-style-box-title {
+	color: burlywood;
+}
+// end of test
+
+// gutenbery slider
+.is-style-slider-gallery ul {
+	display: grid;
+	justify-items: stretch;
+	align-items: stretch;
+
+	li {
+		grid-row: 1;
+		grid-column: 1;
+		animation-name: FadeInOut;
+		animation-duration: 16s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+	}
+}
+
+/* Just do the link I dont understand the math */
+@keyframes FadeInOut {
+	0% {
+	opacity:1;
+	}
+	18.75% {
+	opacity:1;
+	}
+	25% {
+	opacity:0;
+	}
+	93.75% {
+	opacity:0;
+	}
+	100% {
+	opacity:1;
+	}
+}
+
+.is-style-slider-gallery ul li:nth-of-type(1) {
+	animation-delay: 12s;
+}
+.is-style-slider-gallery ul li:nth-of-type(2) {
+	animation-delay: 8s;
+}
+.is-style-slider-gallery ul li:nth-of-type(3) {
+	animation-delay: 4s;
+}
+.is-style-slider-gallery ul li:nth-of-type(4) {
+	animation-delay: 0;
+}
+
+
+
+
+.is-style-featured-media-text {
+	background: $light-gray;
+	margin-bottom: $global-margin*2;
+	grid-template-columns: 1fr !important;
+
+	> div {
+		padding: 0 !important; // overwrite .wp-block-media-text .wp-block-media-text__content
+		grid-row: 2 !important;
+		grid-column: 1 !important;
+	}
+
+	h4 {
+		padding: $global-padding;
+		padding-left: $global-padding*2;
+		background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
+		a {
+			color: white; // remove this as its a link but testing
+		}
+	}
+
+	p {
+		// padding: $global-padding;
+		padding-left: $global-padding*2;
+		padding-right: $global-padding;
+	}
+	
+	
+}
+
+
+/*
+.service-grid { // well that name is now wrong
+	display: grid;
+	// grid-template-columns: 1;
+	// grid-template-rows: 1;
+}
+
+.service-grid img, .service-grid h4 {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.service-grid-bg {
+	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
+	align-self: end;
+}
+
+.inline-block-100w { // hack to make the a all the way across
+	display: inline-block;
+	width: 100%;
+}
+
+.service-grid-bg a {
+	color: $white;
+}
+
+.service-grid-bg a:hover {
+	color: $light-gray;
+}
+*/
+
+.page-template-page-swiss article {
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $global-padding;
+	padding-right: $global-padding;
+
+	video {
+		max-width: 100%;
+		margin-bottom: $global-margin*3;
+	}
+
+	.attachment-post-thumbnail {
+		margin-bottom: $global-margin*2;
+	}
+
+	/*
+	.wp-block-column:not(:first-child) { this throws some design erros on small devices
+		// margin-left: $global-margin*2 !important; // overwrite default I would like to get down to as few important as possible I just need to work on the specificity
+	}
+	*/
+
+	.wp-block-media-text {
+
+		.wp-block-media-text__content {
+			padding: 0 !important;
+		}
+
+		@media (min-width: 600px) {
+			grid-template-columns: 1fr 1fr !important; // needs to be after a media query
+			grid-gap: $global-margin*2;
+			margin-bottom: $global-margin;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.is-style-swiss-separator:before {
+	border-style: solid;
+	border-color: $light-gray;
+	border-bottom-width: $global-padding/2;
+	content: '';
+	width: calc(100% - 1em);
+	// display: inline-block;
+	margin: 0;
+	padding: 0;
+	float: left;
+
+	@media (min-width: 600px) {
+		width: calc(50% - 1em);
+	}
+}
+
+.is-style-swiss-separator {
+	margin: 0;
+	// display: flow-root; // doesnt work on ios
+	display: flex;
+	height: $global-padding/2;
+	margin-bottom: $global-margin;
+	border: none; // remove the original
+}
+
+.is-style-swiss-separator:after {
+
+	@media (min-width: 600px) {
+		width: calc(50% - 1em);
+		content: '';
+		border-style: solid;
+		border-color: $light-gray;
+		border-bottom-width: $global-padding/2;
+		margin: 0;
+		padding: 0;
+		float: right;
+		margin-left: $global-margin*2;
+	}
+}

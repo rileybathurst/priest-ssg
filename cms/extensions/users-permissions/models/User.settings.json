@@ -57,10 +57,6 @@
       "via": "user",
       "collection": "service"
     },
-    "author": {
-      "via": "user",
-      "collection": "article"
-    },
     "pages": {
       "via": "user",
       "collection": "page"

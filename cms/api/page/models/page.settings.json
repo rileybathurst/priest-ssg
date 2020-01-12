@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "pages",
   "info": {
     "name": "page"
   },
@@ -17,8 +19,10 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "pages"
+    },
+    "menu": {
+      "via": "pages",
+      "model": "menu"
     }
-  },
-  "connection": "default",
-  "collectionName": "pages"
+  }
 }

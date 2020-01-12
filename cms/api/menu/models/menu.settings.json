@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "pages": {
+      "collection": "page",
+      "via": "menu"
+    }
+  },
+  "connection": "default",
+  "collectionName": "menus"
+}
