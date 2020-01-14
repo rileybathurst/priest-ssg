@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "../components/image"
+// import Image from "../components/image"
 
 import Header from "./header"
 // import "./layout.css"
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Image />
+      {/* <Image /> */}
       <div
         style={{
           margin: `0 auto`,

@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "menus",
   "info": {
     "name": "menu"
   },
@@ -14,7 +16,5 @@
       "collection": "page",
       "via": "menu"
     }
-  },
-  "connection": "default",
-  "collectionName": "menus"
+  }
 }

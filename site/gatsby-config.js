@@ -22,7 +22,9 @@ module.exports = {
           'user',
           'page',
           'service',
-          'menu'
+          'menu',
+          'sliderone',
+          'slidertwo'
         ],
         queryLimit: 1000,
       },
