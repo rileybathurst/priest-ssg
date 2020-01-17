@@ -33,14 +33,6 @@ const IndexPage = ({ data }) => (
     </div> {/* .bg-light-gray */}
 
     <ul>
-      {data.allStrapiPage.edges.map(document => (
-        <li key={document.node.id}>
-          <h2>
-            <Link to={`/${document.node.id}`}>{document.node.title}</Link>
-          </h2>
-          <p>{document.node.Content}</p>
-        </li>
-      ))}
     </ul>
 
     <main className="container" role="document">
@@ -49,21 +41,16 @@ const IndexPage = ({ data }) => (
         {/* no script Cross fading images aka slider aka carousel http://css3.bradshawenterprises.com/cfimg/ */}
         <div className="cfimg shadow">
 
+
           {data.allStrapiSliderone.edges.map(document => (
             <>
               <p>{document.node.id}</p>
-              <p>{document.node.images.updated_at}</p>
-              <p>{document.node.images.size}</p>
-              <p>{document.node.images.sha256}</p>
-              <p>{document.node.images.provider}</p>
-              <p>{document.node.images.name}</p>
-              <p>{document.node.images.mime}</p>
-              <p>{document.node.images.hash}</p>
-              <p>{document.node.images.ext}</p>
-              <p>{document.node.one.absolutePath}</p>
-              {/* {document.url} */}
+              <p>{document.node.image.absolutePath}</p>
+              <Img fluid={document.node.image.childImageSharp.fluid}/>
             </>
           ))}
+
+          {/* <Slider /> */}
 
         </div>{/* cfimg */}
       </div> {/* hero keeps the content together */}
@@ -99,30 +86,12 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          images {
-            updated_at
-            size
-            sha256
-            provider
-            name
-            mime
-            id
-            hash
-            ext
-          }
-          one {
-            absolutePath
-          }
-        }
-      }
-    }
-
-    allStrapiSlidertwo {
-      edges {
-        node {
-          id
-          images {
-            url
+          image {
+            childImageSharp {
+                fluid(maxWidth: 960) {
+                  ...GatsbyImageSharpFluid
+                }
+            }
           }
         }
       }

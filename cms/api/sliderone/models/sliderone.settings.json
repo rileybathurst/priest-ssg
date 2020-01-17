@@ -9,13 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "images": {
-      "collection": "file",
-      "via": "related",
-      "plugin": "upload",
-      "required": false
-    },
-    "one": {
+    "image": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
