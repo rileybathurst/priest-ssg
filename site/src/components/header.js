@@ -9,11 +9,11 @@ const Header = ({ siteTitle }) => (
     <div className="bg-primary hero-logo">
       <Logo />
     </div>
-    <a herf="" data-open="my-info" className="h4 white-a">
-      <div className="hide-for-medium bg-secondary shadow-darker text-center gp-tb"> {/* small navigation */}
+    {/* <a herf="" data-open="my-info" className="h4 white-a">
+      <div className="hide-for-medium bg-secondary shadow-darker text-center gp-tb"> {/* small navigation
         Menu
-      </div>
-    </a>
+      </div> 
+    </a> */}
 
     <div className="cell shrink show-for-medium bg-secondary shadow"> {/* medium up navigation */}
       <nav>

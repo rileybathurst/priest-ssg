@@ -24,7 +24,7 @@ module.exports = {
           'service',
           'menu',
           'sliderone',
-          'slidertwo'
+          'nextslider'
         ],
         queryLimit: 1000,
       },
@@ -45,5 +45,11 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
+    },
   ],
 }

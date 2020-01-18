@@ -6,130 +6,105 @@ import Img from 'gatsby-image'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <div id="header-contact-background" className="shadow">
-      <div className="header-contact">
-        <h3>SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS IN CHRISTCHURCH.</h3>
+    <main className="container">
+      <div className="bg-light-gray ngm-top gm-bottom shadow">
+        <div className="hero gp-top">
 
-        <section className="together">
-          <div id="header-contact--phone" className="display-grid bg-dark-gray gm-bottom shadow">
-            <div className="grid-icon bg-black gp-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"><path fill="none" d="M0 0h24v24H0V0z" /><path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z"  fill="#fefefe"/></svg>
-            </div>
-            <div className="grid-text bg-dark-gray gp-4">
-              <p className="one-point-two-em no-margin-bottom"><b><a href="tel:033669818">Call us today to discuss your project: 366 9818</a></b></p>
-            </div>
-          </div> {/* .display-grid */}
-
-          <div id="header-contact--place" className="display-grid bg-dark-gray gm-bottom shadow">
-            <div className="grid-icon bg-black gp-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" fill="#fefefe"/><circle cx="12" cy="9" r="2.5" fill="#fefefe"/></svg>
-            </div>
-            <div className="grid-text bg-dark-gray gp-4">
-              <p className="one-point-two-em no-margin-bottom"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at 10 Barbour Street, Christchurch</a></b></p>
-            </div>
-          </div> {/* .display-grid */}
-        </section> {/* .together */}
-      </div> {/* .hero */}
-    </div> {/* .bg-light-gray */}
-
-    <main className="container" role="document">
-      <div className="bg-light-gray ngm-top gm-bottom shadow"></div>
-      <div className="hero gp-top">
-        {/* no script Cross fading images aka slider aka carousel http://css3.bradshawenterprises.com/cfimg/ */}
-        <div className="cfimg shadow">
-          {data.allStrapiSliderone.edges.map(document => (
-              <Img fluid={document.node.image.childImageSharp.fluid}/>
-          ))}
-        </div>{/* cfimg */}
-        <div> {/* keeps the content together */}
-            <h1>the_title()</h1>
-            <p>the_content()</p>
-        </div> {/* */}
-      </div> {/* hero gptop */}
-
-      <div className="hero gp-top">
-        <div className="small-12 medium-6 cell show-for-medium">
-          <h2>We're Experienced Sheetmetal Engineers.</h2>
-          <p>Priest Sheetmetal &amp; Plate Ltd is a family run business that has operated out of our 10 Barbour St address in Waltham, Christchurch for over 63 years. Let our experience guide you from design, manufacture, to assembly and installation of your fabrication project.</p>
-        </div>
-
-        <div className="small-12 medium-6 cell cfimg shadow">
-          {data.allStrapiSliderone.edges.map(document => (
-            <picture>
-              <Img fluid={document.node.image.childImageSharp.fluid}/>
-            </picture>
-          ))}
-        </div>
-
-        <div className="small-12 medium-6 cell hide-for-medium">
-          <h2>We're Experienced Sheetmetal Engineers.</h2>
-          <p>Priest Sheetmetal &amp; Plate Ltd is a family run business that has operated out of our 10 Barbour St address in Waltham, Christchurch for over 63 years. Let our experience guide you from design, manufacture, to assembly and installation of your fabrication project.</p>
-        </div>
-      </div>{/* hero gp-top */}
-
-      <div className="hero gp-top">
-        <div className="display-grid bg-dark-gray gm-bottom shadow-darker">
-          <div className="grid-icon bg-black gp-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"><path fill="none" d="M0 0h24v24H0V0z" /><path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z"  fill="#fefefe"/></svg>
+          <div className="small-12 medium-6 cell cfimg shadow">
+            {data.allStrapiSliderone.edges.map(document => (
+              <picture>
+                <Img fluid={document.node.image.childImageSharp.fluid}/>
+              </picture>
+            ))}
           </div>
-          <div className="grid-text bg-dark-gray gp-4">
-            <p className="one-point-two-em no-margin-bottom"><b><a href="tel:033669818">Call us today to discuss your project: 366 9818</a></b></p>
+          
+          <div>
+            <h1>SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS IN CHRISTCHURCH.</h1>
+            <p>Our team of welders and engineers can tackle any welding or fabrication job. We specalise in TIG, MIG, ARC and resistance-Spot Welding. We can weld alloy, mild steel, stainless and much more. Our Fabricators can fold, stamp, punch, and cut to your requirements with our specialized machinery and experience.</p>
           </div>
-        </div> {/* .display-grid */}
+        </div> {/* hero gp-top */}
 
-        <div className="display-grid bg-dark-gray gm-bottom shadow-darker">
-          <div className="grid-icon bg-black gp-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" fill="#fefefe"/><circle cx="12" cy="9" r="2.5" fill="#fefefe"/></svg>
+        <div className="hero gp-top">
+          <div className="small-12 medium-6 cell hide-for-medium">
+            <h2>We're Experienced Sheetmetal Engineers.</h2>
+            <p>Priest Sheetmetal &amp; Plate Ltd is a family run business that has operated out of our 10 Barbour St address in Waltham, Christchurch for over 63 years. Let our experience guide you from design, manufacture, to assembly and installation of your fabrication project.</p>
           </div>
-          <div className="grid-text bg-dark-gray gp-4">
-            <p className="one-point-two-em no-margin-bottom"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at 10 Barbour Street, Christchurch</a></b></p>
+
+          <div className="small-12 medium-6 cell cfimg shadow">
+            {/* why is this showing the same as the other one */}
+            {data.allStrapiNextslider.edges.map(document => (
+              <picture>
+                <Img fluid={document.node.image.childImageSharp.fluid}/>
+              </picture>
+            ))}
           </div>
-        </div> {/* .display-grid */}
-      </div> {/* .hero gp-top */}
+        </div>{/* hero gp-top */}
+
+        <div className="hero gp-top">
+            <div id="header-contact--phone" className="display-grid bg-dark-gray gm-bottom shadow">
+              <div className="grid-icon bg-black gp-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"><path fill="none" d="M0 0h24v24H0V0z" /><path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z"  fill="#fefefe"/></svg>
+              </div>
+              <div className="grid-text bg-dark-gray gp-4">
+                <p className="one-point-two-em no-margin-bottom"><b><a href="tel:033669818">Call us today to discuss your project: 366 9818</a></b></p>
+              </div>
+            </div> {/* .display-grid */}
+
+            <div id="header-contact--place" className="display-grid bg-dark-gray gm-bottom shadow">
+              <div className="grid-icon bg-black gp-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" fill="#fefefe"/><circle cx="12" cy="9" r="2.5" fill="#fefefe"/></svg>
+              </div>
+              <div className="grid-text bg-dark-gray gp-4">
+                <p className="one-point-two-em no-margin-bottom"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at 10 Barbour Street, Christchurch</a></b></p>
+              </div>
+            </div> {/* .display-grid */}
+        </div>{/* hero gp top */}
+
+      </div>{/* bg-light-gray */}
 
       <div className="grid-container">
         <div className="grid-x grid-padding-x gp-tb">
           <div className="cell gm-tb">
-            {/* start services loop */}
-            <div className="grid-x grid-padding-x gm-tb">
-              <div className="small-12 large-6 cell gp-tb-large">
-                <div className="service-grid shadow img-100">
-                  <p>the_post_thumbnail(medium_large)</p> 
-                </div>
-              </div>
-              <div className="small-12 large-6 cell gp-tb-large">
-                <div className="bg-light-gray shadow">
-                  <h4 className="service-grid-bg no-margin-bottom gp-4">
-                    <a href="<?php the_permalink(); " className="inline-block-100w">
-                      short_title
-                    </a>
-                  </h4>
-                  <div className="gp-4 no-margin-bottom">
-                    the_excerpt()
+      
+            {data.allStrapiService.edges.map(document => (
+              <div className="grid-x grid-padding-x gm-tb">
+                <div className="small-12 large-6 cell gp-tb-large">
+                  <div className="service-grid shadow img-100">
+                    <Img fluid={document.node.Cover.childImageSharp.fluid}/>
                   </div>
-                  <a href="<?php the_permalink(); " className="gm-3 button hollow">
-                    More about short_title
-                  </a>
+                </div>
+                <div className="small-12 large-6 cell gp-tb-large">
+                  <div className="bg-light-gray shadow">
+                    <h4 className="service-grid-bg no-margin-bottom gp-4">
+                      <span className="fake-a">{document.node.Title}</span>
+                    </h4>
+                    <div className="gp-4 no-margin-bottom">
+                      {document.node.Content}
+                    </div>
+                      <span className="gm-3 button hollow">More about {document.node.Title}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* end services loop */}
-          </div>
-        </div> {/* grid-x */}
-      </div> {/*} .grid-container */}
+            ))}
 
-      <div className="bg-light-gray shadow-darker">
-        <div className="grid-container">
-          <div className="grid-x">
-            <div className="cell gp2-tb">
-              {/*} Im not sure about how to deal with iframes yet they might have to come from a function
-              <span className="iframe-100"><iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797" width="1200" height="450" frameborder="0" style="border:0" allowfullscreen className="lozad vimeo"></iframe></span>
-            */}
-            </div>
-          </div> {/* .grid-x */}
-        </div> {/* .grid-container */}
-      </div>
-    </main> {/* container */}
+          </div>
+        </div>
+      </div> {/* grid container */}
+    </main>
+
+    <div className="bg-light-gray shadow-darker">
+      <div className="grid-container">
+        <div className="grid-x">
+          <div className="cell gp2-tb">
+            <span className="iframe-100">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797" width="1200" height="450" frameborder="0" allowfullscreen className="lozad vimeo"></iframe>
+            </span>
+          </div>
+        </div> {/* .grid-x */}
+      </div> {/* .grid-container */}
+    </div>
+
+
   </Layout>
 )
 
@@ -143,11 +118,18 @@ export const pageQuery = graphql`
           id,
           Title,
           Content
+          Cover {
+            childImageSharp {
+              fluid(maxWidth: 960) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
 
-  allStrapiPage {
+    allStrapiPage {
       edges {
         node {
           id,
@@ -163,9 +145,24 @@ export const pageQuery = graphql`
           id
           image {
             childImageSharp {
-                fluid(maxWidth: 960) {
-                  ...GatsbyImageSharpFluid
-                }
+              fluid(maxWidth: 960) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    allStrapiNextslider {
+      edges {
+        node {
+          id
+          image {
+            childImageSharp {
+              fluid(maxWidth: 960) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `slidertwo` model.
+ * Lifecycle callbacks for the `nextslider` model.
  */
 
 module.exports = {

@@ -76,6 +76,25 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: $header-font-family;
 }
 
+h2 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+p {
+	margin-bottom: $global-margin;
+	line-height: 1.6;
+	font-family: "Open Sans", sas-serif;
+}
+
+a {
+	color: #1e93bd;
+	text-decoration: none;
+}
+
 .text-center {
     text-align: center;
 }
@@ -305,6 +324,15 @@ nav, .menu-primary-container, .force-menu-style {
 
 .menu {
 	justify-content: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	position: relative;
+	display: flex;
+}
+
+.menu a {
+	text-decoration: none;
 }
 
 .menu-primary-container a:hover {
@@ -764,13 +792,21 @@ img .alignleft {
 
 
 
-
+.button {
+	display: inline-block;
+	padding: 0.85em 1em;
+}
 
 .button.hollow {
 	font-weight: bold;
+	background-color: transparent;
+	border: 2px solid $primary-color;
+	color: $primary-color;
 }
 
-
+.fake-a {
+	color: $white;
+}
 
 
 
@@ -1043,4 +1079,36 @@ img .alignleft {
 		float: right;
 		margin-left: $global-margin*2;
 	}
+}
+
+.grid-container {
+	padding-left: $global-padding;
+	padding-right: $global-padding;
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid-x {
+	display: flex;
+}
+
+.grid-x > .large-6 {
+	width: 50%;
+}
+
+.grid-padding-x > .cell {
+	padding-left: $global-padding;
+	padding-right: $global-padding;
+}
+
+.hide-for-large {
+	@media (min-width: map-get($breakpoints, large)) {
+		display: none !important;
+	}
+}
+
+.footer-extra {
+	display: block;
+	margin-top: 0;
 }

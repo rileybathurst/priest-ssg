@@ -1,19 +1,19 @@
 {
   "info": {
-    "name": "slidertwo"
+    "name": "nextslider"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "images": {
-      "collection": "file",
+    "image": {
+      "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
     }
   },
   "connection": "default",
-  "collectionName": "slidertwos"
+  "collectionName": "nextsliders"
 }
