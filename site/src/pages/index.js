@@ -70,18 +70,26 @@ const IndexPage = ({ data }) => (
               <div className="grid-x grid-padding-x gm-tb">
                 <div className="small-12 large-6 cell gp-tb-large">
                   <div className="service-grid shadow img-100">
+                  <Link to={`/${document.node.id}`}>
                     <Img fluid={document.node.Cover.childImageSharp.fluid}/>
+                    </Link>
                   </div>
                 </div>
                 <div className="small-12 large-6 cell gp-tb-large">
                   <div className="bg-light-gray shadow">
                     <h4 className="service-grid-bg no-margin-bottom gp-4">
-                      <span className="fake-a">{document.node.Title}</span>
+                      <span className="fake-a">
+                        <Link to={`/${document.node.id}`}>
+                          {document.node.Title}
+                          </Link>
+                        </span>
                     </h4>
                     <div className="gp-4 no-margin-bottom">
                       {document.node.Content}
                     </div>
+                    <Link to={`/${document.node.id}`}>
                       <span className="gm-3 button hollow">More about {document.node.Title}</span>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -1112,3 +1112,13 @@ img .alignleft {
 	display: block;
 	margin-top: 0;
 }
+
+.swiss {
+	margin-bottom: 1rem;
+	border: 0.5rem solid #e6e6e6;
+}
+
+.wp-block-colum {
+	flex-basis: calc(50% - 16px);
+	flex-grow: 0;
+}
