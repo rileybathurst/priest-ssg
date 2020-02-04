@@ -1,22 +1,19 @@
 {
-  "connection": "default",
-  "collectionName": "sliderones",
   "info": {
-    "name": "sliderone"
+    "name": "featured"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "sliderimage": {
+    "video": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
-    },
-    "title": {
-      "type": "string"
     }
-  }
+  },
+  "connection": "default",
+  "collectionName": "featureds"
 }

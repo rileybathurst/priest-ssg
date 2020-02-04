@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "nextsliders",
   "info": {
     "name": "nextslider"
   },
@@ -7,13 +9,14 @@
     "timestamps": true
   },
   "attributes": {
-    "image": {
+    "nextimage": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "title": {
+      "type": "string"
     }
-  },
-  "connection": "default",
-  "collectionName": "nextsliders"
+  }
 }

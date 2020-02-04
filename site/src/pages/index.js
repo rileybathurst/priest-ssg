@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => (
           <div className="small-12 medium-6 cell cfimg shadow">
             {data.allStrapiSliderone.edges.map(document => (
               <picture>
-                <Img fluid={document.node.image.childImageSharp.fluid}/>
+                <Img fluid={document.node.sliderimage.childImageSharp.fluid}/>
               </picture>
             ))}
           </div>
@@ -31,10 +31,9 @@ const IndexPage = ({ data }) => (
           </div>
 
           <div className="small-12 medium-6 cell cfimg shadow">
-            {/* why is this showing the same as the other one */}
             {data.allStrapiNextslider.edges.map(document => (
               <picture>
-                <Img fluid={document.node.image.childImageSharp.fluid}/>
+                <Img fluid={document.node.nextimage.childImageSharp.fluid}/>
               </picture>
             ))}
           </div>
@@ -70,8 +69,8 @@ const IndexPage = ({ data }) => (
               <div className="grid-x grid-padding-x gm-tb">
                 <div className="small-12 large-6 cell gp-tb-large">
                   <div className="service-grid shadow img-100">
-                  <Link to={`/${document.node.id}`}>
-                    <Img fluid={document.node.Cover.childImageSharp.fluid}/>
+                    <Link to={`/${document.node.id}`}>
+                      <Img fluid={document.node.Cover.childImageSharp.fluid}/>
                     </Link>
                   </div>
                 </div>
@@ -105,13 +104,12 @@ const IndexPage = ({ data }) => (
         <div className="grid-x">
           <div className="cell gp2-tb">
             <span className="iframe-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797" width="1200" height="450" frameborder="0" allowfullscreen className="lozad vimeo"></iframe>
+              <iframe title="google maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797" width="1200" height="450" frameborder="0" allowfullscreen className="lozad vimeo"></iframe>
             </span>
           </div>
         </div> {/* .grid-x */}
       </div> {/* .grid-container */}
     </div>
-
 
   </Layout>
 )
@@ -123,8 +121,8 @@ export const pageQuery = graphql`
     allStrapiService {
       edges {
         node {
-          id,
-          Title,
+          id
+          Title
           Content
           Cover {
             childImageSharp {
@@ -140,8 +138,8 @@ export const pageQuery = graphql`
     allStrapiPage {
       edges {
         node {
-          id,
-          title,
+          id
+          title
           content
         }
       }
@@ -151,7 +149,8 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          image {
+          title
+          sliderimage {
             childImageSharp {
               fluid(maxWidth: 960) {
                 ...GatsbyImageSharpFluid
@@ -166,7 +165,8 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          image {
+          title
+          nextimage {
             childImageSharp {
               fluid(maxWidth: 960) {
                 ...GatsbyImageSharpFluid

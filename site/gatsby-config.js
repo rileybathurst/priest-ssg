@@ -24,7 +24,8 @@ module.exports = {
           'service',
           'menu',
           'sliderone',
-          'nextslider'
+          'nextslider',
+          'featured'
         ],
         queryLimit: 1000,
       },
