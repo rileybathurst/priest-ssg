@@ -60,9 +60,15 @@ $header-font-family: 'Roboto Slab', serif;
 
 $page-width: 77em;
 
+/* Reset */
 body {
-    margin: 0; // briwser reset
+    margin: 0; // browser reset
 }
+
+picture, img, h4 {
+	display: block;
+}
+/* Finish Reset */
 
 html {
     font-family: $body-font-family;
@@ -72,22 +78,45 @@ main {
 	max-width: 100vw;
 }
 
+// typescale.com 1.200 Minor Third
+
+html {font-size: 100%;} /*16px*/
+
+body {
+  background-color: white;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #333;
+}
+
+p {margin-bottom: 1.15rem;}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: $header-font-family;
+  margin: 2.75rem 0 1.05rem;
+  font-family: $header-font-family;
+  font-weight: 400;
+  line-height: 1.15;
 }
 
-h2 {
-	font-size: 2rem;
+h1 {
+	margin-top: 0;
+	font-size: 2.488em;
 }
 
-h4 {
-	font-size: 1.5rem;
-}
+h2 {font-size: 2.074em;}
+
+h3 {font-size: 1.728em;}
+
+h4 {font-size: 1.44em;}
+
+h5 {font-size: 1.2em;}
+
+small, .text_small {font-size: 0.833em;}
 
 p {
-	margin-bottom: $global-margin;
+	// margin-bottom: $global-margin;
 	line-height: 1.6;
-	font-family: "Open Sans", sas-serif;
+	font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -101,15 +130,16 @@ a {
 
 .bg-primary {
 	background: $primary-color;
+	// this should have a color as well?
 
 	a {
-	color: $white;
+		color: $white;
 	}
 	a:hover {
-	color: $light-gray;
+		color: $light-gray;
 	}
 	cite {
-	color: $medium-gray;
+		color: $medium-gray;
 	}
 }
 
@@ -161,10 +191,13 @@ a {
 	color: $white;
 }
 
-
 white-a:hover {
 	color: $light-gray;
 	background: $black;
+}
+
+.hero-image img {
+	width: 100%;
 }
 
 .hidden-link {
@@ -172,7 +205,9 @@ white-a:hover {
 }
 
 .shadow {
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	// box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); // current, Im not sure why I was doing 2 shadows seems overly complicated
+	/* offset-x | offset-y | blur-radius | spread-radius | color */
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
 }
 
 .shadow-darker {
@@ -257,6 +292,10 @@ white-a:hover {
 	padding: $global-padding;
 }
 
+.no-margin {
+	margin: 0;
+}
+
 .no-margin-bottom {
 	margin-bottom: 0;
 }
@@ -295,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
 
-.one-point-two-em {
+.one-point-two-em { // why and where?
 	font-size: 1.2em;
 }
 
@@ -308,13 +347,14 @@ h1, h2, h3, h4, h5, h6 {
 	}
 } */
 
+/* Im really not sure this is a great idea smaller text in bold doesnt look great
 .bold-big {
 	font-weight: normal;
 
 	@media (min-width: map-get($breakpoints, large)) {
 	font-weight: bold;
 	}
-}
+} */
 
 nav, .menu-primary-container, .force-menu-style {
 	font-weight: bold;
@@ -399,6 +439,15 @@ iframe {
 	grids
 ------------------------------------------------ */
 
+.footer-contact-areas {
+	max-width: 75rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: $global-padding;
+}
+
+
 .site {
 	display: grid; // this just for the 100 vh but there might be a smarter way
 	min-height: 100vh;
@@ -406,18 +455,16 @@ iframe {
 
 footer {
 	align-self: end;
+	margin-bottom: 0; // browser reset
 }
 
 /*
 	service grids
 ------------------------------------------------ */
 
-/*
 .hero-logo {
-	display: grid;
-	justify-items: center;
+	fill: $white;
 }
-*/
 
 .hero-logo a {
 	display: block;
@@ -464,7 +511,7 @@ footer {
 	display grids
 ------------------------------------------------ */
 
-.display-grid { //terrible names
+.display-grid { //terrible name
 	display: flex;
 	justify-items: center;
 }
@@ -480,8 +527,14 @@ footer {
 }
 
 .footer-icons {
-	display: grid;
-	justify-items: center;
+	/* display: grid;
+	justify-items: center; // I think this was the whole point but I can probably do it easier with a flex */
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		flex-direction: row;
+	}
 }
 
 .footer-icon-icon { //terrible names
@@ -606,13 +659,13 @@ grid-column: 1;
 .cfimg picture {
 	grid-column: 1;
 	grid-row: 1;
-	animation-name: FadeInOut;
+	/* animation-name: FadeInOut;
 	animation-duration: 16s;
 	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
+	animation-iteration-count: infinite; */
 }
 
-/* Just do the link I dont understand the math */
+/* Just do the link I dont understand the math 
 @keyframes FadeInOut {
 	0% {
 	opacity:1;
@@ -643,8 +696,7 @@ grid-column: 1;
 .cfimg picture:nth-of-type(4) {
 	animation-delay: 0;
 }
-
-
+*/
 
 /*  6 - Off Canvas
 --------------------------------------------------------------*/
@@ -718,6 +770,7 @@ img .alignleft {
 }
 
 /* Small Up screens */
+// this is not how I work on these anymore it should be updated
 @media only screen and (max-width: 40em) { /* min-width 1025px, large screens */
 
 	.gallery-columns-2 .gallery-item, .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item, .gallery-columns-5 .gallery-item, .gallery-columns-6 .gallery-item, .gallery-columns-7 .gallery-item, .gallery-columns-8 .gallery-item, .gallery-columns-9 .gallery-item {
@@ -798,7 +851,7 @@ img .alignleft {
 }
 
 .button.hollow {
-	font-weight: bold;
+	// font-weight: bold;
 	background-color: transparent;
 	border: 2px solid $primary-color;
 	color: $primary-color;
@@ -1089,6 +1142,23 @@ img .alignleft {
 	margin-right: auto;
 }
 
+.service {
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		flex-direction: row;
+	}
+}
+
+.service > div {
+	flex: 1;
+	margin: $global-padding;
+}
+
 .grid-x {
 	display: flex;
 }
@@ -1108,6 +1178,13 @@ img .alignleft {
 	}
 }
 
+.show-for-large {
+	display: none;
+	@media (min-width: map-get($breakpoints, large)) {
+		display: block; // not sure if this is exactly right
+	}
+}
+
 .footer-extra {
 	display: block;
 	margin-top: 0;
@@ -1121,4 +1198,23 @@ img .alignleft {
 .wp-block-colum {
 	flex-basis: calc(50% - 16px);
 	flex-grow: 0;
+}
+
+.copyright {
+	float: left; // needed to have the p margin inside of this
+	width: 100%;
+	padding-top: 1rem;
+}
+
+.menu-small > ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.active {
+	display: inline;
+}
+
+.inactive {
+	display: none;
 }

@@ -22,3 +22,8 @@ gatsby develop
 - User
 - Excerpt
 - Photo Gallery
+
+
+
+
+https://www.gatsbyjs.org/docs/add-page-metadata/
