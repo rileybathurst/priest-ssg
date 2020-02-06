@@ -2,10 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Logo from "../components/logo"
-// import Menu from "../components/menu"
-
-// import Console from "../components/count"
-import Hook from "../components/hook"
+import SmallMenu from "../components/smallmenu"
 
 const Header = ({ siteTitle }) => (
   <>
@@ -15,26 +12,26 @@ const Header = ({ siteTitle }) => (
       </div>
 
       <div className="hide-for-medium bg-secondary shadow-darker text-center gp-tb">
-        <Hook />
+        <SmallMenu />
       </div>
 
       <nav id="menu_small" className="menu-small hide-for-print inactive">
-        <ul className="vertical menu text-center">
-          <li><Link>Home</Link></li>
-          <li><Link>Services</Link></li>
-          <li><Link>Gallery</Link></li>
-          <li><Link>Contact</Link></li>
+        <ul className="text-center">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/services">Services</Link></li>
+          <li><Link to="/gallery">Gallery</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
 
-      <div className="bg-secondary shadow"> {/* medium up navigation */}
+      <div className="bg-secondary show-for-medium shadow"> {/* medium up navigation */}
         <nav>
           <div className="menu-primary-container">
             <ul className="menu align-center">
-              <li><Link>Home</Link></li>
-              <li><Link>Services</Link></li>
-              <li><Link>Gallery</Link></li>
-              <li><Link>Contact</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/gallery">Gallery</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
         </nav>

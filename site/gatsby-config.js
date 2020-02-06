@@ -25,7 +25,8 @@ module.exports = {
           'menu',
           'sliderone',
           'nextslider',
-          'featured'
+          'featured',
+          'gallery'
         ],
         queryLimit: 1000,
       },

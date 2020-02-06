@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
         </div> {/* hero gp-top */}
 
         <div className="hero gp-top">
-          <div className="small-12 medium-6 cell hide-for-medium">
+          <div className="small-12 medium-6 cell">
             <h2>We're Experienced Sheetmetal Engineers.</h2>
             <p>Priest Sheetmetal &amp; Plate Ltd is a family run business that has operated out of our 10 Barbour St address in Waltham, Christchurch for over 63 years. Let our experience guide you from design, manufacture, to assembly and installation of your fabrication project.</p>
           </div>
@@ -65,9 +65,9 @@ const IndexPage = ({ data }) => (
         {data.allStrapiService.edges.map(document => (
           <>
             <section className="service">
-              <div className="service-grid shadow img-100">
+              <div className="service-grid img-100">
                 <Link to={`/${document.node.id}`}>
-                  <Img fluid={document.node.Cover.childImageSharp.fluid}/>
+                  <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
                 </Link>
               </div>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function smallMenu() {
+function SmallMenu() {
 
   function openUp() {
     var menu_small = document.getElementById('menu_small');
@@ -14,10 +14,9 @@ function smallMenu() {
   
   return (
     <button onClick={openUp}>
-    Menu
-  </button>
-
+        Menu
+    </button>
   );
 }
 
-export default smallMenu;
+export default SmallMenu;

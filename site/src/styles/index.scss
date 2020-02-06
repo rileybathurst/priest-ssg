@@ -659,13 +659,13 @@ grid-column: 1;
 .cfimg picture {
 	grid-column: 1;
 	grid-row: 1;
-	/* animation-name: FadeInOut;
+	animation-name: FadeInOut;
 	animation-duration: 16s;
 	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite; */
+	animation-iteration-count: infinite;
 }
 
-/* Just do the link I dont understand the math 
+/* Just do the link I dont understand the math */
 @keyframes FadeInOut {
 	0% {
 	opacity:1;
@@ -696,7 +696,6 @@ grid-column: 1;
 .cfimg picture:nth-of-type(4) {
 	animation-delay: 0;
 }
-*/
 
 /*  6 - Off Canvas
 --------------------------------------------------------------*/
@@ -843,7 +842,15 @@ img .alignleft {
 	display: none;
 }
 
-
+button {
+	border: none; // browser rest
+	padding: $global-padding/2 $global-padding;
+	background: $secondary-color;
+	color: $white;
+	font-family: $header-font-family;
+	font-weight: bold;
+	font-size: 1.44em;
+}
 
 .button {
 	display: inline-block;
@@ -1211,10 +1218,72 @@ img .alignleft {
 	flex-direction: column;
 }
 
+#menu_small {
+	background: $secondary-color;
+
+}
+
+#menu_small ul {
+	padding-left: 0;
+	margin: 0;
+	// background: $secondary-color;
+}
+
+#menu_small li {
+	list-style: none;
+	margin-left: 0;
+}
+
+#menu_small a {
+	padding: $global-padding;
+	display: block;
+	background: $primary-color;
+	color: $white;
+	margin: 5px;
+}
+
 .active {
 	display: inline;
 }
 
 .inactive {
 	display: none;
+}
+
+.hide-for-medium {
+	display: block;
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: none;
+	}
+}
+
+.show-for-medium {
+	display: none;
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: block;
+	}
+}
+
+.page-width {
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.blocks-gallery-item {
+	width: calc((100% - 32px)/3);
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+
+.blocks-gallery-item:nth-of-type(3n) {
+	margin-right: 0;
 }
