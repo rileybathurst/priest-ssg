@@ -3,6 +3,21 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 // import Image from "../components/image"
 import Img from 'gatsby-image'
+/* import  Helmet from "react-helmet"
+
+class Application extends React.Component {
+  render() {
+    return (
+      <div className="application">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>My Title</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
+      </div>
+    )
+  }
+} */
 
 const IndexPage = ({ data }) => (
   <Layout>

@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Priest Sheet Metal & Plate Christchurch',
+    titleTemplate: "%s · test seo",
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
-    author: 'Riley Bathurst',
-    // image: '/src/components/images/gatsby-icons.png'
+    url: 'https://priestsheetmetal.co.nz/'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -53,5 +53,6 @@ module.exports = {
         plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
+
   ],
 }

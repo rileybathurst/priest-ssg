@@ -71,3 +71,7 @@ site/.pnp/
 site/.pnp.js
 # Yarn Integrity file
 site/.yarn-integrity
+
+.DS_Store
+site/.DS_Store
+site/src/componponents/.DS_Store
