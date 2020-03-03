@@ -3,21 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 // import Image from "../components/image"
 import Img from 'gatsby-image'
-/* import  Helmet from "react-helmet"
-
-class Application extends React.Component {
-  render() {
-    return (
-      <div className="application">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>My Title</title>
-          <link rel="canonical" href="http://mysite.com/example" />
-        </Helmet>
-      </div>
-    )
-  }
-} */
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -73,41 +58,39 @@ const IndexPage = ({ data }) => (
               </div>
             </div> {/* .display-grid */}
         </div>{/* hero gp top */}
-
       </div>{/* bg-light-gray */}
 
+      {data.allStrapiService.edges.map(document => (
+        <>
+          <section className="service">
+            <div className="service-grid img-100">
+              <Link to={`/${document.node.id}`}>
+                <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
+              </Link>
+            </div>
 
-        {data.allStrapiService.edges.map(document => (
-          <>
-            <section className="service">
-              <div className="service-grid img-100">
-                <Link to={`/${document.node.id}`}>
-                  <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
-                </Link>
+            <div className="services-text bg-light-gray shadow">
+
+              <div className="bg-primary gp-4">
+                <h4 className="services-title">
+                    <Link to={`/${document.node.id}`}>
+                      {document.node.Title}
+                    </Link>
+                </h4>
               </div>
 
-              <div className="services-text bg-light-gray shadow">
-
-                <div className="bg-primary gp-4">
-                  <h4>
-                      <Link to={`/${document.node.id}`}>
-                          {document.node.Title}
-                        </Link>
-                  </h4>
-                </div>
-
-                <div className="gp-4">
-                  {document.node.Content}
-                </div>
-
-                <Link to={`/${document.node.id}`}>
-                  <span className="gm-3 button hollow">More about {document.node.Title}</span>
-                </Link>
-                
+              <div className="gp-4">
+                {document.node.Content}
               </div>
-            </section>
-          </>
-        ))}
+
+              <Link to={`/${document.node.id}`}>
+                <span className="gm-3 button hollow">More about {document.node.Title}</span>
+              </Link>
+              
+            </div>
+          </section>
+        </>
+      ))}
 
 
     </main>

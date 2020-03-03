@@ -1,3 +1,5 @@
+// this is the category page
+
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -8,39 +10,40 @@ const ServicesPage = ({ data }) => (
   <Layout>
 
     <HeaderContact />
+
     <main className="container">
 
-        {data.allStrapiService.edges.map(document => (
-          <>
-            <section className="service">
-              <div className="service-grid img-100">
-                <Link to={`/${document.node.id}`}>
-                  <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
-                </Link>
+      {data.allStrapiService.edges.map(document => (
+        <>
+          <section className="service">
+            <div className="service-grid img-100">
+              <Link to={`/${document.node.id}`}>
+                <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
+              </Link>
+            </div>
+
+            <div className="services-text bg-light-gray shadow">
+
+              <div className="bg-primary gp-4">
+                <h4 className="services-title">
+                    <Link to={`/${document.node.id}`}>
+                        {document.node.Title}
+                      </Link>
+                </h4>
               </div>
 
-              <div className="services-text bg-light-gray shadow">
-
-                <div className="bg-primary gp-4">
-                  <h4>
-                      <Link to={`/${document.node.id}`}>
-                          {document.node.Title}
-                        </Link>
-                  </h4>
-                </div>
-
-                <div className="gp-4">
-                  {document.node.Content}
-                </div>
-
-                <Link to={`/${document.node.id}`}>
-                  <span className="gm-3 button hollow">More about {document.node.Title}</span>
-                </Link>
-                
+              <div className="gp-4">
+                {document.node.Content}
               </div>
-            </section>
-          </>
-        ))}
+
+              <Link to={`/${document.node.id}`}>
+                <span className="gm-3 button hollow">More about {document.node.Title}</span>
+              </Link>
+
+            </div>
+          </section>
+        </>
+      ))}
 
     </main>
 
