@@ -17,6 +17,7 @@
     "gatsby-source-strapi": "0.0.10",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.7",
+    "jsx-to-string": "^1.4.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
