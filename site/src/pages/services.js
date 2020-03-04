@@ -6,6 +6,11 @@ import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
 import Img from 'gatsby-image'
 
+
+
+
+
+
 const ServicesPage = ({ data }) => (
   <Layout>
 
@@ -47,6 +52,9 @@ const ServicesPage = ({ data }) => (
 
     </main>
 
+
+
+
   </Layout>
 )
 
@@ -67,6 +75,7 @@ export const pageQuery = graphql`
               }
             }
           }
+          pg
         }
       }
     }

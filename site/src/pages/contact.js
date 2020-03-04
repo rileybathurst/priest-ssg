@@ -13,9 +13,9 @@ import More from '../components/more'
 
 function Greeting(props) {
     let a = <Turny />
-    // return (typeof a) // hey this actually does something
-    var b = Object.prototype.toString(a)
-    return b
+    return (typeof a) // hey this actually does something
+    // var b = Object.prototype.toString(a)
+    // return b
     
 }
 
@@ -59,7 +59,10 @@ const ContactPage = ({ data }) => (
     </div>
 
 
-    {/* <h1>{data.strapiService.Title}</h1> */}
+    <h1>{data.strapiService.Title}</h1>
+    <h1>{data.strapiService.nn}</h1>
+    <h1>{data.strapiService.pg}</h1>
+    {/* <h1>{data.strapiService.pg}</h1> */}
 
     <hr />
     <Turny />
@@ -76,8 +79,10 @@ export default ContactPage
 
 export const query = graphql`
     query Turn {
-        strapiService(id: {eq: "Service_2"}) {
+        strapiService(id: {eq: "Service_1"}) {
             Title
+            pg
+            nn
         }
     }
 `

@@ -11,18 +11,12 @@ const Turny = () => {
                 Gallery {
                     name
                 }
+                pg
             }
         }
     `)
 
-    var a = 1
-    // var a = {data.strapiService.Title}
-    // hmmm Im not allowed this its kinda needs to come in the return
-
-    if (a === 1) {
-        return <>2</>
-    }
-  
+    return <>{data.strapiService.id}</>
 
   }
   
