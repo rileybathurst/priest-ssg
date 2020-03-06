@@ -1,0 +1,23 @@
+{
+  "info": {
+    "name": "videos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "service": {
+      "model": "service",
+      "via": "videos"
+    }
+  },
+  "connection": "default",
+  "collectionName": "videos"
+}

@@ -6,6 +6,8 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import HeaderContact from "../components/headercontact"
 
+import Turny from "../components/either"
+
 function Cover(props) {
   var medium = props.medium
   var video = props.video
@@ -88,6 +90,13 @@ function Gallery(props) {
 }
 // END OF GALLERY
 
+function Clips(props) {
+  var ifff = props.if
+  if (ifff !== null) {
+    return <hr className="swiss" />
+  }
+}
+
 const ArticleTemplate = ({ data }) => (
   <Layout>
       <HeaderContact />
@@ -110,6 +119,16 @@ const ArticleTemplate = ({ data }) => (
             <p className="wp-block-colum">{data.strapiService.Content}</p>
         </div>
 
+        <Clips ifff={data.strapiService.videos.map(vids => <>{vids.title}</>)} />
+
+
+        {data.strapiService.videos.map(vids => <>
+          <h3>{vids.title}</h3>
+          {vids.content}
+          </>
+        )}
+
+
         <Gallery has={data.strapiService.nn} open={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )}/>
         {/*
           Call the gallery function
@@ -119,6 +138,7 @@ const ArticleTemplate = ({ data }) => (
           Photos has its own props
         */}
 
+        
     </article>
   </Layout>
 )
@@ -147,6 +167,10 @@ export const query = graphql`
       medium
       CoverVideo
       isthis
+      videos {
+        title
+        content
+      }
     }
   }
 `

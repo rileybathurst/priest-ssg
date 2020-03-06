@@ -49,6 +49,13 @@
     },
     "isthis": {
       "type": "richtext"
+    },
+    "videos": {
+      "via": "service",
+      "collection": "videos"
+    },
+    "video": {
+      "type": "json"
     }
   }
 }

@@ -12,11 +12,21 @@ const Turny = () => {
                     name
                 }
                 pg
+                video {
+                    a
+                    b
+                }
             }
         }
     `)
 
-    return <>{data.strapiService.id}</>
+    return <>
+        {/* {data.strapiService.videos} */}
+        <hr />
+        {data.strapiService.Gallery.map(things => <>{things.name}</> )}
+        {/* hey */}
+        <hr />
+    </>
 
   }
   
