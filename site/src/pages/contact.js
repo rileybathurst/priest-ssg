@@ -2,23 +2,6 @@ import React from 'react'
 // import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
-// import Img from 'gatsby-image'
-
-
-import Turny from '../components/either'
-import Another from '../components/another'
-import More from '../components/more'
-// import { hydrate } from 'react-dom'
-
-
-function Greeting(props) {
-    let a = <Turny />
-    return (typeof a) // hey this actually does something
-    // var b = Object.prototype.toString(a)
-    // return b
-    
-}
-
 
 const ContactPage = ({ data }) => (
   <Layout>
@@ -57,18 +40,6 @@ const ContactPage = ({ data }) => (
             </div> {/* .grid-x */}
         </div> {/* .grid-container */}
     </div>
-
-
-    <h1>{data.strapiService.Title}</h1>
-    <h1>{data.strapiService.nn}</h1>
-    <h1>{data.strapiService.pg}</h1>
-    {/* <h1>{data.strapiService.pg}</h1> */}
-
-    <hr />
-    <Turny />
-    <hr />
-    <Greeting />
-
 
   </Layout>
 )

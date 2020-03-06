@@ -40,6 +40,15 @@
     },
     "nn": {
       "type": "integer"
+    },
+    "medium": {
+      "type": "string"
+    },
+    "CoverVideo": {
+      "type": "string"
+    },
+    "isthis": {
+      "type": "richtext"
     }
   }
 }
