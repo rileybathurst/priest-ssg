@@ -6,50 +6,91 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import HeaderContact from "../components/headercontact"
 
-import Turny from "../components/either"
-
-// import CoverVideo from "../components/covervideo"
-// import { render } from 'node-sass'
-// import CoverPhoto from "../components/coverphoto"
-
-function GuestGreeting(props) {
-  return <h1>Please sign up.</h1>;
+function Cover(props) {
+  var medium = props.medium
+  var video = props.video
+  var photo = props.photo
+  
+  if (medium === 'video') {
+    return  <div style={{
+      padding:'56.25% 0 0 0',
+      position:'relative'
+      }}>
+        <iframe src={'https://player.vimeo.com/video/' + video + '?background=1'}
+        title='cover video'
+        style={{
+          position:'absolute',
+          top:0,
+          left:0,
+          width:'100%',
+          height:'100%'
+          }}
+          frameborder="0" allow="autoplay; fullscreen" allowfullscreen />
+      </div>
+  }
+  return <Img fluid={photo} />
 }
 
-function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn
-  if (isLoggedIn === 1) {
-    // return <Turny />
-    return <h3 className="wp-block-colum">Photo Gallery</h3>
-  }
-  // return <GuestGreeting />
-  return null
+// Oh man this is confusing maybe it works but it needs to be documented
+function Photos(props) {
+  return <li className="blocks-gallery-item">
+    <figure>
+      <img src={props.psrc} alt={props.palt} loading="lazy" />
+    </figure>
+  </li>
 }
 
-function SwissPG(props) {
-  const isLoggedIn = props.isLoggedIn // has to be defined in each function
-  if (isLoggedIn === 1) {
-    return <hr className="swiss" />
-  }
-  return null
+// I cant figure out how to remove this but I should be able to
+function Loop(props) {
+  var opener = props.open
+
+  return <>
+    {opener}
+  </>
 }
 
 function Gallery(props) {
-  var media = props.media
-  var video = props.video
-  var photo = props.photo
-  if (media === 1) {
-    return <>{video}</>
-  }
-  return <>{photo}</>
+  var has = props.has
+  var open = props.open
+
+  if (has === 1) {
+    return <>
+      <hr className="swiss" />
+
+      <div style={{
+        display: 'flex',
+        marginBottom: '28px'
+      }}>
+      <h3 className="wp-block-colum">Photo Gallery</h3>
+      <div className="wp-block-colum">
+        <figure className="wp-block-gallery columns-2 is-cropped">
+          <ul className="blocks-gallery-grid">
+
+            {/* Oh man this is confusing maybe it works but it needs to be documented */}
+            {/* not gatsby Img so and not responsive image but day 1 this is atleast working */}
+            {/* // needs a lozad lazy load for everything other than chrome */}
+            {/* make this a variable and do some work on it, remove the extension, change it, add sizes etc */}
+            <Loop open={open} />
+
+            {/*
+              Run a loop here? its doing something if i remove it the photos go away
+              I think maybe this can go straight to photos?
+              Im just running the loop in a prop because I cant run it here so maybe that is smart?
+              Photos are used in the loop?
+            */}
+
+          </ul>
+        </figure>
+      </div> {/* column */}
+    </div>
+  </> } // return
+      return null // no gallery 
 }
+// END OF GALLERY
 
 const ArticleTemplate = ({ data }) => (
   <Layout>
       <HeaderContact />
-
-      <Gallery media={data.strapiService.nn} video={data.strapiService.Title} photo={data.strapiService.Content} />
-
 
       <article style={{ 
           maxWidth: '75rem',
@@ -57,21 +98,8 @@ const ArticleTemplate = ({ data }) => (
           marginRight: 'auto'
       }}>
 
-        <section className="cover">
-          <Img fluid={data.strapiService.Cover.childImageSharp.fluid} visi={data.strapiService.nn}/>
-          {/* If there is a video load it over the top of the photo??? */}
-          {data.strapiService.CoverVideo}
-          <hr />
-          {data.strapiService.isthis}
-          <hr />
-          {/* <script src="https://player.vimeo.com/api/player.js"></script> */}
-          {/* the script isnt needed maybe its built into gatsby? */}
-          {/* {data.strapiService.medium} */}
-        </section>
-
-
-        
-
+        <Cover medium={data.strapiService.medium} video={data.strapiService.CoverVideo} photo={data.strapiService.Cover.childImageSharp.fluid} />
+        {/* https://help.vimeo.com/hc/en-us/articles/115011183028-Embedding-background-videos */}
 
         <hr className="swiss" />
         <div style={{
@@ -82,35 +110,14 @@ const ArticleTemplate = ({ data }) => (
             <p className="wp-block-colum">{data.strapiService.Content}</p>
         </div>
 
-        <SwissPG isLoggedIn={data.strapiService.nn} />
-        {/* this is kinda ridiculous and overkill */}
-
-{/* PHOTO GALLERY */}
-{/* THIS STILL SHOWS SOME HEIGHT BUT BECAUSE ITS ALL HACKY TO MAKE IT WORK ITS NOT THE BIGGEST PROBLEM YET */}
-          <div style={{
-            display: 'flex',
-            // marginBottom: '28px'
-        }}>
-          <Greeting isLoggedIn={data.strapiService.nn} />
-          <div className="wp-block-colum">
-            <figure className="wp-block-gallery columns-2 is-cropped">
-              <ul className="blocks-gallery-grid">
-            {/* not gatsby Img so and not responsive image but day 1 this is atleast working */}
-            {data.strapiService.Gallery.map(photos => 
-              <>
-                <li className="blocks-gallery-item">
-                  <figure>
-                    <img src={photos.url} alt={photos.name} loading="lazy" />
-                    {/* needs a lozad lazy load for everything other than chrome */}
-                    {/* make this a variable and do some work on it, remove the extension, change it, add sizes etc */}
-                </figure>
-                </li>
-              </>
-              )}
-              </ul>
-              </figure>
-            </div>{/* column */}
-          </div>
+        <Gallery has={data.strapiService.nn} open={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )}/>
+        {/*
+          Call the gallery function
+          pass it open as a prop
+          open has has the loop
+          with a nested <Photos loopinside of that
+          Photos has its own props
+        */}
 
     </article>
   </Layout>
