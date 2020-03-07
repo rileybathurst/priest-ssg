@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import HeaderContact from "../components/headercontact"
 
-import Turny from "../components/either"
+// import Turny from "../components/either"
 
 function Cover(props) {
   var medium = props.medium
@@ -36,9 +36,9 @@ function Cover(props) {
 // Oh man this is confusing maybe it works but it needs to be documented
 function Photos(props) {
   return <li className="blocks-gallery-item">
-    <figure>
+    {/* <figure> */}
       <img src={props.psrc} alt={props.palt} loading="lazy" />
-    </figure>
+    {/* </figure> */}
   </li>
 }
 
@@ -91,10 +91,10 @@ function Gallery(props) {
 // END OF GALLERY
 
 function Clips(props) {
-  var ifff = props.if
-  if (ifff !== null) {
-    return <hr className="swiss" />
+  if (props.hasVideo === 1) {
+    return <><hr className="swiss" /></>
   }
+  return null
 }
 
 const ArticleTemplate = ({ data }) => (
@@ -113,20 +113,42 @@ const ArticleTemplate = ({ data }) => (
         <hr className="swiss" />
         <div style={{
             display: 'flex',
-            marginBottom: '28px'
+            marginBottom: '28px',
+            justifyContent: 'space-between'
         }}>
             <h2 className="wp-block-colum">{data.strapiService.Title}</h2>
             <p className="wp-block-colum">{data.strapiService.Content}</p>
         </div>
 
-        <Clips ifff={data.strapiService.videos.map(vids => <>{vids.title}</>)} />
+        <Clips hasVideo={data.strapiService.hasVideo} />
 
-
+        
         {data.strapiService.videos.map(vids => <>
-          <h3>{vids.title}</h3>
-          {vids.content}
+          
+          <div className="wp-block-media-text">
+          <figure className="wp-block-media-text__media">
+          <div style={{
+            padding: '56.25% 0 0 0',
+            position: 'relative'
+          }}><iframe title={vids.title} src={'https://player.vimeo.com/video/' + vids.vimeo + '?title=0&byline=0&portrait=0'}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
+          }}
+          frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+          </figure>
+
+          <div className="wp-block-media-text__content">
+            <h3>{vids.title}</h3>
+            {vids.content}
+          </div>
+          </div>
           </>
         )}
+
 
 
         <Gallery has={data.strapiService.nn} open={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )}/>
@@ -170,7 +192,9 @@ export const query = graphql`
       videos {
         title
         content
+        vimeo
       }
+      hasVideo
     }
   }
 `

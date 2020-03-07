@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "videos",
   "info": {
     "name": "videos"
   },
@@ -16,8 +18,9 @@
     "service": {
       "model": "service",
       "via": "videos"
+    },
+    "vimeo": {
+      "type": "string"
     }
-  },
-  "connection": "default",
-  "collectionName": "videos"
+  }
 }

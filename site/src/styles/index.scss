@@ -462,7 +462,8 @@ footer {
 	service grids
 ------------------------------------------------ */
 
-.hero-logo {
+.hero-logo,
+.hero-logo svg {
 	fill: $white;
 }
 
@@ -1283,7 +1284,7 @@ button {
 	margin-right: auto;
 }
 
-.wp-block-gallery {
+/* .wp-block-gallery {
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
@@ -1295,17 +1296,17 @@ button {
 	// width: calc((100% - 32px)/3);
 	margin-right: 16px;
 	margin-bottom: 16px;
-}
+} */
 
-.blocks-gallery-item:nth-of-type(3n) {
+/* .blocks-gallery-item:nth-of-type(3n) {
 	margin-right: 0;
-}
+} */
 
 .services-title {
 	margin: $global-margin/2 0; // dealt with by the card
 }
 
-.blocks-gallery-grid {
+/* .blocks-gallery-grid {
 	display: flex;
 	flex-wrap: wrap;
 	padding-left: 0;
@@ -1325,5 +1326,98 @@ button {
 			}
 		}
 	}
+} */
+
+
+/* -------------- /
+GALLERY 
+https://codepen.io/maxvoltar/pen/eYOPdMG
+/* -------------- */
+
+.wp-block-gallery {
+	margin: 0;
+	overflow: hidden;
+	padding-left: 0; // gallery page
 }
 
+.blocks-gallery-grid {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+	align-items: stretch;
+}
+
+.blocks-gallery-item {
+	height: 20vh;
+  flex-grow: 1;
+  max-width: 17rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.blocks-gallery-item:last-child {
+	// There's no science in using "10" here. In all my testing, this delivered the best results.
+	flex-grow: 10;
+  }
+
+.blocks-gallery-item img {
+	max-height: 100%;
+	min-width: 100%;
+	object-fit: cover;
+	vertical-align: bottom;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+	.blocks-gallery-item {
+	  height: 30vh;
+	}
+  }
+  
+  // Short screens
+  
+  @media (max-height: 480px) {
+	.blocks-gallery-item {
+	  height: 80vh;
+	}
+  }
+  
+  // Smaller screens in portrait
+  
+  @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+	.blocks-gallery-grid {
+	  flex-direction: row;
+	}
+  
+	.blocks-gallery-item {
+	  height: auto;
+	  width: 100%;
+	}
+	.blocks-gallery-item img {
+	  width: 100%;
+	  max-height: 75vh;
+	  min-width: 0;
+	}
+  }
+
+
+
+/*   .blocks-gallery-item img {
+	object-fit: cover;
+  } */
+
+
+
+
+  .wp-block-media-text {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  grid-gap: 2rem;
+	  margin-bottom: 1rem;
+  }
+
+  .wp-block-media-text__media {
+	  grid-row: 1;
+	  grid-column: 2;
+  }

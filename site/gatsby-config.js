@@ -29,7 +29,7 @@ module.exports = {
           'gallery',
           'videos'
         ],
-        queryLimit: 1000,
+        queryLimit: 2000,
       },
     },
     'gatsby-transformer-sharp',
@@ -54,6 +54,12 @@ module.exports = {
         plugins: [`gatsby-remark-responsive-iframe`],
       },
     },
-
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+        www: false,
+      }
+    }
   ],
 }

@@ -10,9 +10,9 @@ const GalleryPage = ({ data }) => (
     <main className="page-width">
       <h1 className="text-center">Gallery</h1>
 
-      <ul className="wp-block-gallery columns-3 is-cropped">
+      <ul className="blocks-gallery-grid" >
         {data.allStrapiGallery.edges.map(document => (
-          <li className="blocks-gallery-item">
+          <li className="blocks-gallery-item" style={{width: '33%'}}>
             <Img fluid={document.node.galleryImage.childImageSharp.fluid} />
           </li>
         ))}
