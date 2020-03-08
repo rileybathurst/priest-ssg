@@ -13,7 +13,7 @@ function SmallMenu() {
   }
   
   return (
-    <button onClick={openUp}>
+    <button className="small_menu--opener" onClick={openUp}>
         Menu
     </button>
   );

@@ -62,7 +62,9 @@ function Gallery(props) {
       <div style={{
         display: 'flex',
         marginBottom: '28px'
-      }}>
+      }}
+      className="services-photogallery"
+      >
       <h3 className="wp-block-colum">Photo Gallery</h3>
       <div className="wp-block-colum">
         <figure className="wp-block-gallery columns-2 is-cropped">
@@ -90,8 +92,15 @@ function Gallery(props) {
 }
 // END OF GALLERY
 
-function Clips(props) {
-  if (props.hasVideo === 1) {
+/* function Clips(props) {
+  if (props.hasVideo > 0) {
+    return <><hr className="swiss" /></>
+  }
+  return null
+} */
+
+function Sec(props) {
+  if (props.hasVideo > 1) {
     return <><hr className="swiss" /></>
   }
   return null
@@ -104,7 +113,8 @@ const ArticleTemplate = ({ data }) => (
       <article style={{ 
           maxWidth: '75rem',
           marginLeft: 'auto',
-          marginRight: 'auto'
+          marginRight: 'auto',
+          padding: '1rem'
       }}>
 
         <Cover medium={data.strapiService.medium} video={data.strapiService.CoverVideo} photo={data.strapiService.Cover.childImageSharp.fluid} />
@@ -115,40 +125,44 @@ const ArticleTemplate = ({ data }) => (
             display: 'flex',
             marginBottom: '28px',
             justifyContent: 'space-between'
-        }}>
+        }}
+        className="service-info">
             <h2 className="wp-block-colum">{data.strapiService.Title}</h2>
             <p className="wp-block-colum">{data.strapiService.Content}</p>
         </div>
 
-        <Clips hasVideo={data.strapiService.hasVideo} />
+        {/* <Clips hasVideo={data.strapiService.hasVideo} /> */}
 
         
         {data.strapiService.videos.map(vids => <>
           
-          <div className="wp-block-media-text">
-          <figure className="wp-block-media-text__media">
-          <div style={{
-            padding: '56.25% 0 0 0',
-            position: 'relative'
-          }}><iframe title={vids.title} src={'https://player.vimeo.com/video/' + vids.vimeo + '?title=0&byline=0&portrait=0'}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%'
-          }}
-          frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
-          </figure>
+          <Sec hasVideo={data.strapiService.hasVideo} />
 
-          <div className="wp-block-media-text__content">
-            <h3>{vids.title}</h3>
-            {vids.content}
-          </div>
+          <div className="wp-block-media-text">
+            <figure className="wp-block-media-text__media">
+              <div style={{
+                padding: '56.25% 0 0 0',
+                position: 'relative'
+              }}><iframe title={vids.title} src={'https://player.vimeo.com/video/' + vids.vimeo + '?title=0&byline=0&portrait=0'}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%'
+              }}
+              frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+            </figure>
+
+            <div className="wp-block-media-text__content">
+              <h3>{vids.title}</h3>
+              {vids.content}
+            </div>
           </div>
           </>
         )}
 
+              {/* <Sec hasVideo={data.strapiService.hasVideo} /> */}
 
 
         <Gallery has={data.strapiService.nn} open={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )}/>

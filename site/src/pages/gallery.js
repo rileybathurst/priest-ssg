@@ -7,12 +7,13 @@ const GalleryPage = ({ data }) => (
   <Layout>
 
     <HeaderContact />
-    <main className="page-width">
+    <main className="gallery-width">
       <h1 className="text-center">Gallery</h1>
 
       <ul className="blocks-gallery-grid" >
         {data.allStrapiGallery.edges.map(document => (
-          <li className="blocks-gallery-item" style={{width: '33%'}}>
+          // <li className="blocks-gallery-item gallerygallery">
+          <li className="gallerygallery">
             <Img fluid={document.node.galleryImage.childImageSharp.fluid} />
           </li>
         ))}

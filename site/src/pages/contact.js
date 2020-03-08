@@ -11,8 +11,6 @@ const ContactPage = ({ data }) => (
 
         <h1>Contact</h1>
 
-        <h2>Contact Us For Enquiries</h2>
-
         <p>
             Phone: <a href="tel:(03) 366 9818">(03) 366 9818</a><br />
             Fax: <a href="tel:(03) 366 9819">(03) 366 9819</a><br />

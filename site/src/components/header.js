@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => (
         <Logo />
       </div>
 
-      <div className="hide-for-medium bg-secondary shadow-darker text-center gp-tb">
+      <div className="hide-for-medium bg-secondary shadow-darker text-center">
         <SmallMenu />
       </div>
 
