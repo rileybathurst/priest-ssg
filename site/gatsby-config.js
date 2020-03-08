@@ -60,6 +60,16 @@ module.exports = {
         https: true,
         www: false,
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Roboto Slab`,
+          `source sans pro\:400` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
     }
   ],
 }

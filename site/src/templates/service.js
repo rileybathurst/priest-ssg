@@ -27,7 +27,7 @@ function Cover(props) {
           width:'100%',
           height:'100%'
           }}
-          frameborder="0" allow="autoplay; fullscreen" allowfullscreen />
+          frameBorder="0" allow="autoplay; fullscreen" allowFullScreen />
       </div>
   }
   return <Img fluid={photo} />
@@ -151,7 +151,7 @@ const ArticleTemplate = ({ data }) => (
                 width: '100%',
                 height: '100%'
               }}
-              frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+              frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe></div>
             </figure>
 
             <div className="wp-block-media-text__content">
