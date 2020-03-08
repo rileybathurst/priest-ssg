@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Priest Sheet Metal & Plate Christchurch',
-    titleTemplate: "%s · test seo",
+    titleTemplate: "%s",
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
     url: 'https://priestsheetmetal.co.nz/'
   },
@@ -40,10 +40,10 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#1e93bd',
+        theme_color: '#1e93bd',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/priest-icon-256x256.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
