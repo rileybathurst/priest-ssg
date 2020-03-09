@@ -12,8 +12,8 @@ const IndexPage = ({ data }) => (
 
           <div className="small-12 medium-6 cell cfimg">
             {data.allStrapiSliderone.edges.map(document => (
-              <picture className="shadow">
-                <Img fluid={document.node.sliderimage.childImageSharp.fluid}/>
+              <picture>
+                <Img fluid={document.node.sliderimage.childImageSharp.fluid} className="shadow" />
               </picture>
             ))}
           </div>
@@ -28,8 +28,8 @@ const IndexPage = ({ data }) => (
 
           <div className="small-12 medium-6 cell cfimg hero-order-image">
             {data.allStrapiNextslider.edges.map(document => (
-              <picture className="shadow">
-                <Img fluid={document.node.nextimage.childImageSharp.fluid}/>
+              <picture>
+                <Img fluid={document.node.nextimage.childImageSharp.fluid} className="shadow" />
               </picture>
             ))}
           </div>
