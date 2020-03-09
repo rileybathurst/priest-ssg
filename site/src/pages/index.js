@@ -10,9 +10,9 @@ const IndexPage = ({ data }) => (
       <div className="bg-light-gray ngm-top gm-bottom shadow">
         <div className="hero gp-top">
 
-          <div className="small-12 medium-6 cell cfimg shadow">
+          <div className="small-12 medium-6 cell cfimg">
             {data.allStrapiSliderone.edges.map(document => (
-              <picture>
+              <picture className="shadow">
                 <Img fluid={document.node.sliderimage.childImageSharp.fluid}/>
               </picture>
             ))}
@@ -26,9 +26,9 @@ const IndexPage = ({ data }) => (
 
         <div className="hero gp-top">
 
-          <div className="small-12 medium-6 cell cfimg shadow hero-order-image">
+          <div className="small-12 medium-6 cell cfimg hero-order-image">
             {data.allStrapiNextslider.edges.map(document => (
-              <picture>
+              <picture className="shadow">
                 <Img fluid={document.node.nextimage.childImageSharp.fluid}/>
               </picture>
             ))}

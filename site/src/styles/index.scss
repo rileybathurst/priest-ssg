@@ -442,7 +442,8 @@ iframe {
 
 	// start doing columns once its bigger - slightly a hack
 	@media (min-width: map-get($breakpoints, medium)) {
-	grid-template-columns: repeat(auto-fill, minmax(30em,1fr));
+		// grid-template-columns: repeat(auto-fill, minmax(30em,1fr));
+		grid-template-columns: 1fr 1fr;
 	}
 }
 
