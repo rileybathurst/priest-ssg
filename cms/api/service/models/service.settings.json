@@ -51,14 +51,17 @@
       "type": "richtext"
     },
     "videos": {
-      "via": "service",
-      "collection": "videos"
+      "collection": "videos",
+      "via": "service"
     },
     "video": {
       "type": "json"
     },
     "hasVideo": {
       "type": "integer"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

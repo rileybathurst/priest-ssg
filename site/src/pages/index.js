@@ -65,7 +65,7 @@ const IndexPage = ({ data }) => (
         <>
           <section className="service">
             <div className="service-grid img-100">
-              <Link to={`/${document.node.id}`}>
+              <Link to={`/services/${document.node.slug}`}>
                 <Img fluid={document.node.Cover.childImageSharp.fluid} className="shadow"/>
               </Link>
             </div>
@@ -74,7 +74,7 @@ const IndexPage = ({ data }) => (
 
               <div className="bg-primary gp-4">
                 <h4 className="services-title">
-                    <Link to={`/${document.node.id}`}>
+                    <Link to={`/services/${document.node.slug}`}>
                       {document.node.Title}
                     </Link>
                 </h4>
@@ -84,7 +84,7 @@ const IndexPage = ({ data }) => (
                 {document.node.Content}
               </div>
 
-              <Link to={`/${document.node.id}`}>
+              <Link to={`/services/${document.node.slug}`}>
                 <span className="gm-3 button hollow">More about {document.node.Title}</span>
               </Link>
               
@@ -128,6 +128,7 @@ export const pageQuery = graphql`
               }
             }
           }
+          slug
         }
       }
     }

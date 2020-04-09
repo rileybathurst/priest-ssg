@@ -1,4 +1,5 @@
 'use strict';
+const slugify = require('slugify');
 
 /**
  * Lifecycle callbacks for the `service` model.
@@ -52,4 +53,17 @@ module.exports = {
   // After destroying a value.
   // Fired after a `delete` query.
   // afterDestroy: async (model, attrs, options) => {}
+
+/*   beforeSave: async model => {
+    if (model.Title) {
+      model.slug = slugify(model.Title);
+    }
+  },
+  beforeUpdate: async model => {
+    if (model.getUpdate() && model.getUpdate().Title) {
+      model.update({
+        slug: slugify(model.getUpdate().Title),
+      });
+    }
+  }, */
 };

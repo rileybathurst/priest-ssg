@@ -16,8 +16,8 @@
       "type": "string"
     },
     "service": {
-      "model": "service",
-      "via": "videos"
+      "via": "videos",
+      "model": "service"
     },
     "vimeo": {
       "type": "string"
