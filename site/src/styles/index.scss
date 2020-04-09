@@ -135,6 +135,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	color: $secondary-color;
+}
+
 .text-center {
     text-align: center;
 }
@@ -147,7 +151,7 @@ a {
 		color: $white;
 	}
 	a:hover {
-		color: $light-gray;
+		color: $black;
 	}
 	cite {
 		color: $medium-gray;
@@ -178,10 +182,12 @@ a {
 
 	a {
 	color: $white;
+	transition: 0.5s ease;
 	}
 
 	a:hover {
-	color: $light-gray;
+	color: $black;
+
 	}
 }
 
@@ -373,6 +379,12 @@ nav, .menu-primary-container, .force-menu-style {
 	font-family: $header-font-family;
 }
 
+.menu-primary-container > ul > a:hover,
+.menu-primary-container > ul > li > a:hover {
+	color: darken( $white, 10%);
+	background: darken( $secondary-color, 10% )
+}
+
 .menu {
 	justify-content: center;
 	padding: 0;
@@ -474,23 +486,37 @@ footer {
 	service grids
 ------------------------------------------------ */
 
+.hero-logo {
+	display: grid;
+	place-items: center;
+}
+
 .hero-logo,
 .hero-logo svg {
 	fill: $white;
 }
 
+.hero-logo:hover,
+.hero-logo svg:hover {
+	fill: darken($white, 10%);
+}
+
 .hero-logo a {
-	display: block;
+	display: inline-block;
 	// max-width: 33%;
 	max-width: 50%;
-	margin: 0 auto;
-	padding-top: $global-padding*2; // start doing more with a type scale and vertical rythm
-	padding-bottom: $global-padding*2;
+	margin: $global-margin auto;
+	padding: $global-padding*2; // start doing more with a type scale and vertical rythm
 
 	@media (min-width: map-get($breakpoints, medium)) {
 		max-width: 33%;
 		padding-bottom: $global-padding*3;
 	}
+}
+
+.hero-logo a:hover {
+	background: darken($primary-color, 10%);
+	transition: 0.5s ease;
 }
 
 .service-grid { // well that name is now wrong
@@ -547,7 +573,7 @@ footer {
 	display: flex;
 	flex-direction: column;
 
-	@media (min-width: map-get($breakpoints, medium)) {
+	@media (min-width: map-get($breakpoints, large)) {
 		flex-direction: row;
 	}
 }
@@ -556,6 +582,7 @@ footer {
 	grid-column: 1;
 	grid-row: 1;
 	align-self: center;
+	padding: 5px;
 
 	@media (min-width: map-get($breakpoints, large)) {
 	justify-self: end;
@@ -564,6 +591,12 @@ footer {
 
 .footer-icon-icon svg {
 	fill: $primary-color;
+}
+
+.footer-icon-icon:hover {
+	background: $light-gray;
+	border-radius: 5px;
+	transition: ease 0.5s; // having this on the hover is needed not to load and then transform
 }
 
 .footer-icon-icon svg:hover {
@@ -889,11 +922,14 @@ button {
 	background-color: transparent;
 	border: 2px solid $primary-color;
 	color: $primary-color;
+	transition: 0.5s ease;
 }
 
 .button.hollow:hover {
-	color: $secondary-color;
+	background: $secondary-color;
+	color: $light-gray;
 	border-color: $secondary-color;
+
 }
 
 .fake-a {
@@ -937,6 +973,20 @@ button {
 #header-contact--phone,
 #header-contact--place {
 	margin-bottom: $global-margin*2;
+}
+
+
+#header-contact--phone svg,
+#header-contact--place svg {
+	fill: $white;
+	padding: 5px;
+}
+
+#header-contact--phone  svg:hover,
+#header-contact--place svg:hover { // taregting the svg link
+	fill: $black;
+	background: $white;
+	transition: 0.5s ease;
 }
 
 .service-info {
@@ -1198,10 +1248,10 @@ button {
 		margin: $global-margin;
 	}
 
-	@media (min-width: map-get($breakpoints, large)) {
-		max-width: 75rem; // this is a little hacky
+	@media (min-width: 75rem) { // this is a little hacky
 		margin-left: auto;
 		margin-right: auto;
+		max-width: 73rem; // means it never quite hits the edges
 	}
 }
 
@@ -1549,6 +1599,6 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 	}
 }
 
-.fake-a { // 
+.fake-a { // used for the fax number in the footer I can probably do this in a nicer way
 	color: $primary-color;
 }

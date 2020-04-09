@@ -8,7 +8,9 @@ const Header = ({ siteTitle }) => (
   <>
     <header>
       <div className="bg-primary hero-logo">
-        <Logo />
+        {/* <Link to="/"> */}
+          <Logo />
+        {/* </Link> */}
       </div>
 
       <div className="hide-for-medium bg-secondary shadow-darker text-center">
@@ -28,10 +30,11 @@ const Header = ({ siteTitle }) => (
         <nav>
           <div className="menu-primary-container">
             <ul className="menu align-center">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              {/* this is written kinda backwards to make the link be the full size */}
+              <Link to="/"><li>Home</li></Link>
+              <Link to="/services"><li>Services</li></Link>
+              <Link to="/gallery"><li>Gallery</li></Link>
+              <Link to="/contact"><li>Contact</li></Link>
             </ul>
           </div>
         </nav>
