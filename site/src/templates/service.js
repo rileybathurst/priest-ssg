@@ -6,8 +6,6 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import HeaderContact from "../components/headercontact"
 
-// import Turny from "../components/either"
-
 function Cover(props) {
   var medium = props.medium
   var video = props.video
