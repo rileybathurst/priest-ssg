@@ -8,9 +8,7 @@ const Header = ({ siteTitle }) => (
   <>
     <header>
       <div className="bg-primary hero-logo">
-        {/* <Link to="/"> */}
-          <Logo />
-        {/* </Link> */}
+        <Logo />
       </div>
 
       <div className="hide-for-medium bg-secondary shadow-darker text-center">

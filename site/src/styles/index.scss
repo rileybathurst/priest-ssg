@@ -48,7 +48,7 @@ $warning-color: #ffae00;
 $black: #0a0a0a;
 $white: #fefefe;
 $light-gray: #e6e6e6;
-$medium-gray: #cacaca;
+$medium-gray: #D1D1D1; // slightly adapted so the footer ratio is passing contrast guidelines
 $dark-gray: #8a8a8a;
 
 $global-margin: 1rem;
@@ -91,7 +91,7 @@ main {
 html {font-size: 100%;} /*16px*/
 
 body {
-  background-color: white;
+  background-color: $white;
   font-weight: 400;
   line-height: 1.65;
   color: #333;
@@ -131,7 +131,7 @@ p {
 }
 
 a {
-	color: #1e93bd;
+	color: $secondary-color; // passes contrast checks when primary does not
 	text-decoration: none;
 }
 
@@ -175,6 +175,17 @@ a:hover {
 
 .bg-medium-gray {
 	background: $medium-gray;
+
+	.fake-a,
+	a {
+		color: $secondary-color;
+	}
+
+	.fake-a:hover,
+	a:hover {
+		color: $primary-color;
+	}
+
 }
 
 .bg-dark-gray {
@@ -379,10 +390,17 @@ nav, .menu-primary-container, .force-menu-style {
 	font-family: $header-font-family;
 }
 
+.menu-primary-container > ul > a,
+.menu-primary-container > ul > li > a {
+	border-bottom: 5px solid $secondary-color; // invisibile until hovered
+}
+
+
 .menu-primary-container > ul > a:hover,
 .menu-primary-container > ul > li > a:hover {
 	color: darken( $white, 10%);
-	background: darken( $secondary-color, 10% )
+	background: darken( $secondary-color, 10% );
+	border-bottom: 5px solid darken( $secondary-color, 20% ); // playing around with an additional design style
 }
 
 .menu {
@@ -491,9 +509,9 @@ footer {
 	place-items: center;
 }
 
-.hero-logo,
 .hero-logo svg {
 	fill: $white;
+	width: 100%; // needed for chrome
 }
 
 .hero-logo:hover,
@@ -590,7 +608,7 @@ footer {
 }
 
 .footer-icon-icon svg {
-	fill: $primary-color;
+	fill: $secondary-color; // moved away from primary to pass contrast guidelines
 }
 
 .footer-icon-icon:hover {
@@ -915,13 +933,17 @@ button {
 .button {
 	display: inline-block;
 	padding: 0.85em 1em;
+	font-family: $header-font-family;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 
 .button.hollow {
 	// font-weight: bold;
 	background-color: transparent;
-	border: 2px solid $primary-color;
-	color: $primary-color;
+	border: 2px solid $secondary-color;
+	color: $secondary-color;
 	transition: 0.5s ease;
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
 import Img from 'gatsby-image'
@@ -12,7 +13,6 @@ const GalleryPage = ({ data }) => (
 
       <ul className="blocks-gallery-grid" >
         {data.allStrapiGallery.edges.map(document => (
-          // <li className="blocks-gallery-item gallerygallery">
           <li className="gallerygallery">
             <Img fluid={document.node.galleryImage.childImageSharp.fluid} />
           </li>

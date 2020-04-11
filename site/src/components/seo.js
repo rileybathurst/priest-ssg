@@ -38,6 +38,8 @@ const SEO = ({ title, description, pathname, article }) => (
             {seo.description && (
               <meta name="twitter:description" content={seo.description} />
             )}
+
+            <html lang="en" />
           </Helmet>
         </>
       )

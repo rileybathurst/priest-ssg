@@ -7,9 +7,9 @@ import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
 
 function Cover(props) {
-  var medium = props.medium
-  var video = props.video
-  var photo = props.photo
+  var medium = props.medium // query the cover if its has been set to video
+  var video = props.video // the vimeo id
+  var photo = props.photo // if there isnt a video cover insert a photo
   
   if (medium === 'video') {
     return  <div style={{
@@ -30,28 +30,19 @@ function Cover(props) {
   }
   return <Img fluid={photo} />
 }
+// End of Cover
 
-// Oh man this is confusing maybe it works but it needs to be documented
+// Part of the gallery
+// returns each photo as a list item
 function Photos(props) {
   return <li className="blocks-gallery-item">
-    {/* <figure> */}
-      <img src={props.psrc} alt={props.palt} loading="lazy" />
-    {/* </figure> */}
+      <img src={props.psrc} alt={props.palt} loading="lazy" /> {/* I guess the props are coming through the Gallery */}
   </li>
 }
 
-// I cant figure out how to remove this but I should be able to
-function Loop(props) {
-  var opener = props.open
-
-  return <>
-    {opener}
-  </>
-}
-
 function Gallery(props) {
-  var has = props.has
-  var open = props.open
+  var has = props.has // this is a variable I define manually if we have a gallery make it 1 otherwise it's undefined as the boolean function of strapi was not working for me
+  var loop = props.loop // I dont understand this but its needed to spin the <Photos function from above
 
   if (has === 1) {
     return <>
@@ -68,36 +59,23 @@ function Gallery(props) {
         <figure className="wp-block-gallery columns-2 is-cropped">
           <ul className="blocks-gallery-grid">
 
-            {/* Oh man this is confusing maybe it works but it needs to be documented */}
+            {/* This is confusing maybe it works but it needs to be documented when I can understand it */}
             {/* not gatsby Img so and not responsive image but day 1 this is atleast working */}
             {/* // needs a lozad lazy load for everything other than chrome */}
             {/* make this a variable and do some work on it, remove the extension, change it, add sizes etc */}
-            <Loop open={open} />
 
-            {/*
-              Run a loop here? its doing something if i remove it the photos go away
-              I think maybe this can go straight to photos?
-              Im just running the loop in a prop because I cant run it here so maybe that is smart?
-              Photos are used in the loop?
-            */}
+            {loop}
 
           </ul>
         </figure>
       </div> {/* column */}
     </div>
   </> } // return
-      return null // no gallery 
+  return null // no gallery 
 }
 // END OF GALLERY
 
-/* function Clips(props) {
-  if (props.hasVideo > 0) {
-    return <><hr className="swiss" /></>
-  }
-  return null
-} */
-
-function Sec(props) {
+function Sec(props) { // seperator between the secondary videos
   if (props.hasVideo > 1) {
     return <><hr className="swiss" /></>
   }
@@ -119,21 +97,21 @@ const ArticleTemplate = ({ data }) => (
         {/* https://help.vimeo.com/hc/en-us/articles/115011183028-Embedding-background-videos */}
 
         <hr className="swiss" />
+
+        {/* title and content area open */}
         <div style={{
             display: 'flex',
             marginBottom: '28px',
             justifyContent: 'space-between'
         }}
         className="service-info">
-            <h2 className="wp-block-colum">{data.strapiService.Title}</h2>
-            <p className="wp-block-colum">{data.strapiService.Content}</p>
+          <h2 className="wp-block-colum">{data.strapiService.Title}</h2>
+          <p className="wp-block-colum">{data.strapiService.Content}</p>
         </div>
+        {/* title and content area close */}
 
-        {/* <Clips hasVideo={data.strapiService.hasVideo} /> */}
-
-        
         {data.strapiService.videos.map(vids => <>
-          
+
           <Sec hasVideo={data.strapiService.hasVideo} />
 
           <div className="wp-block-media-text">
@@ -158,22 +136,12 @@ const ArticleTemplate = ({ data }) => (
             </div>
           </div>
           </>
-        )}
+        )} {/* close out the videos area */}
 
-              {/* <Sec hasVideo={data.strapiService.hasVideo} /> */}
+        <Gallery has={data.strapiService.nn} loop={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )} /> {/* I dont entirley understand how this works */}
 
-
-        <Gallery has={data.strapiService.nn} open={data.strapiService.Gallery.map(photos => <Photos psrc={photos.url} palt={photos.name} /> )}/>
-        {/*
-          Call the gallery function
-          pass it open as a prop
-          open has has the loop
-          with a nested <Photos loopinside of that
-          Photos has its own props
-        */}
-
-        
     </article>
+
   </Layout>
 )
 
@@ -195,12 +163,10 @@ export const query = graphql`
         name
         url
       }
-      pg
       id
       nn
       medium
       CoverVideo
-      isthis
       videos {
         title
         content
