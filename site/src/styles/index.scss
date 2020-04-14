@@ -1624,3 +1624,30 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 .fake-a { // used for the fax number in the footer I can probably do this in a nicer way
 	color: $primary-color;
 }
+
+
+.hero {
+	// tone down the size of the hero text but stick to the type scale
+	h1 {
+		// font-size: 2.074em; // this would usually be an h2 but it's just too big on the smallest phone
+		font-size: 1.728em; // try even further down at an h3
+
+		@media (min-width: map-get($breakpoints, medium)) {
+			font-size: 2.074em; // h2 halfway back up
+		}
+
+		@media (min-width: map-get($breakpoints, large)) {
+			font-size: 2.448em; // return to normal
+		}
+
+	}
+
+	h2 {
+		font-size: 1.728em;
+
+		@media (min-width: map-get($breakpoints, medium)) {
+			font-size: 2.074em;
+		}
+
+	}
+}
