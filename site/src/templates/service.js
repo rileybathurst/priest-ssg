@@ -3,7 +3,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import Layout from '../components/layout' 
+import Header from "../components/header"
+import Footer from "../components/footer"
+
+import SEO from "../components/seo"
 import HeaderContact from "../components/headercontact"
 
 function Cover(props) {
@@ -83,8 +86,15 @@ function Sec(props) { // seperator between the secondary videos
 }
 
 const ArticleTemplate = ({ data }) => (
-  <Layout>
-      <HeaderContact />
+  <>
+    <SEO 
+      title={data.strapiService.Title + " - Priest Sheet Metal & Plate Christchurch"}
+      description={data.strapiService.Content}
+      pathname={"services/" + data.strapiService.Title}
+      image={"https://priestsheetmetal.co.nz" + data.strapiService.Cover.childImageSharp.fixed.src}
+    />
+    <Header />
+    <HeaderContact />
 
       <article style={{ 
           maxWidth: '75rem',
@@ -142,7 +152,8 @@ const ArticleTemplate = ({ data }) => (
 
     </article>
 
-  </Layout>
+  <Footer />
+</>
 )
 
 export default ArticleTemplate
@@ -156,6 +167,9 @@ export const query = graphql`
         childImageSharp {
           fluid(maxWidth: 960) {
             ...GatsbyImageSharpFluid
+          }
+          fixed {
+            src
           }
         }
       }
