@@ -53,7 +53,8 @@ function Gallery(props) {
 
       <div style={{
         display: 'flex',
-        marginBottom: '28px'
+        marginBottom: '28px',
+        justifyContent: 'space-between'
       }}
       className="services-photogallery"
       >

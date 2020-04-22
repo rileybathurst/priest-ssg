@@ -621,11 +621,17 @@ footer {
 				height: calc(100% - 2rem);
 				display: flex;
 				align-items: center;
-				color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
+				// color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
+				color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
 				padding: $global-padding;
 			}
 		}
 	}
+}
+
+.header-contact--text__underline {
+	text-decoration: underline;
+	text-decoration-thickness: .125em; // not working on chrome yet https://caniuse.com/#search=text-decoration-thickness
 }
 
 .footer-icons {
@@ -633,11 +639,18 @@ footer {
 	justify-items: center; // I think this was the whole point but I can probably do it easier with a flex */
 	display: flex;
 	flex-direction: column;
-	padding: 5px;
+	// padding: 5px;
+	padding: $global-padding;
 	border-radius: 5px;
+	// background: lighten($medium-gray, 2%);
+
+	@media (min-width: map-get($breakpoints, medium)) {
+
+	}
 
 	@media (min-width: map-get($breakpoints, large)) {
 		flex-direction: row;
+		padding: $global-padding/2;
 	}
 }
 
@@ -1047,7 +1060,6 @@ button {
 	margin-bottom: $global-margin*2;
 	display: flex;
 	background: $dark-gray;
-	// @include shadow;
 }
 
 
@@ -1077,6 +1089,7 @@ button {
 
 		a {
 			display: inline-block;
+			color: darken($white, 10%) !important;
 		}
 	}
 
@@ -1289,8 +1302,7 @@ button {
 
 
 
-
-
+/* 
 .is-style-swiss-separator:before {
 	border-style: solid;
 	border-color: $light-gray;
@@ -1317,7 +1329,7 @@ button {
 }
 
 .is-style-swiss-separator:after {
-
+	
 	@media (min-width: 600px) {
 		width: calc(50% - 1em);
 		content: '';
@@ -1329,7 +1341,37 @@ button {
 		float: right;
 		margin-left: $global-margin*2;
 	}
+} */
+
+.swiss::before {
+	@media (min-width: map-get($breakpoints, medium)) {
+		content: ''; // show up
+		width: calc(50% - 1em); // leave space for the gap
+		border: 0.5rem solid #e6e6e6;
+	}
 }
+
+.swiss {
+	margin-bottom: 1rem;
+	border: 0.5rem solid #e6e6e6;
+	width: 100%;
+	display: flex; // im not quite sure how this is working but its needed
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		border: none;
+	}
+}
+
+.swiss::after {
+	@media (min-width: map-get($breakpoints, medium)) {
+		content: '';
+		width: calc(50% - 1em);
+		border: 0.5rem solid #e6e6e6;
+		margin-left: $global-margin*2;
+	}
+}
+
+
 
 .grid-container {
 	padding-left: $global-padding;
@@ -1394,11 +1436,6 @@ button {
 .footer-extra {
 	display: block;
 	margin-top: 0;
-}
-
-.swiss {
-	margin-bottom: 1rem;
-	border: 0.5rem solid #e6e6e6;
 }
 
 .wp-block-colum {
@@ -1570,7 +1607,8 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 	flex-wrap: wrap;
 	list-style: none;
 	padding-left: 0;
-	align-items: stretch;
+	// align-items: stretch;
+	justify-content: space-between;
 }
 
 .blocks-gallery-item {
@@ -1583,7 +1621,7 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 
   @media (min-width: map-get($breakpoints, medium)) {
 	  max-width: 15rem;
-	  margin-left: 1rem;
+
 	  max-height: 20vh;
   }
 
@@ -1593,6 +1631,12 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
   }
 }
 
+.blocks-gallery-item:nth-child(even) {
+	@media (min-width: map-get($breakpoints, large)) { // this isnt the right number this still needs plenty of work but atleast were inline now
+		margin-left: 1rem;
+	}
+}
+
 .blocks-gallery-item:last-child {
 	// There's no science in using "10" here. In all my testing, this delivered the best results.
 	flex-grow: 10;
@@ -1600,6 +1644,7 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 
 .blocks-gallery-item img {
 	max-height: 100%;
+	width: 100%; // needed for safari
 	min-width: 100%;
 	object-fit: cover;
 	vertical-align: bottom;
@@ -1637,14 +1682,9 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 	}
   }
 
-
-
 /*   .blocks-gallery-item img {
 	object-fit: cover;
   } */
-
-
-
 
 .wp-block-media-text {
 	display: grid;

@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => (
                   </a>
               </div>
               <div className="header-contact--text">
-                <p className="one-point-two-em no-margin"><b><a href="tel:033669818">Call us today to discuss your project: 366 9818</a></b></p>
+                <p className="one-point-two-em no-margin"><b><a href="tel:033669818">Call us today to discuss your project:&nbsp;<span className="header-contact--text__underline">366 9818</span></a></b></p>
               </div>
             </div> {/* .header-contact--phone */}
 
@@ -60,7 +60,7 @@ const IndexPage = ({ data }) => (
                 </a>
               </div>
               <div className="header-contact--text">
-                <p className="one-point-two-em no-margin"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at 10 Barbour Street, Christchurch</a></b></p>
+                <p className="one-point-two-em no-margin"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at&nbsp;<span className="header-contact--text__underline">10 Barbour Street, Christchurch</span></a></b></p>
               </div>
             </div> {/* .header-contact--place */}
         </div>{/* hero gp top */}
