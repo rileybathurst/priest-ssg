@@ -159,13 +159,16 @@ a:hover {
 }
 
 .bg-secondary {
-	background: $secondary-color;
+    background: $secondary-color;
+
 
 	a {
 	color: $white;
 	}
 	a:hover {
-	color: $light-gray;
+    color: $light-gray;
+    background: darken($secondary-color, 10%);
+    transition: 0.5s ease;
 	}
 }
 
@@ -192,13 +195,13 @@ a:hover {
 	background: $dark-gray;
 
 	a {
-	color: $white;
-	transition: 0.5s ease;
+		color: $white;
+		transition: 0.5s ease;
+		display: block;
 	}
 
-	a:hover {
-	color: $black;
-
+	a:hover { // I think this was just for the hero box which Im moving up a few levels to be able to do a few things at once
+		color: $black;
 	}
 }
 
@@ -328,7 +331,7 @@ white-a:hover {
 	margin-bottom: 0;
 }
 
-no-padding-top {
+.no-padding-top {
 	padding-top: 0;
 }
 
@@ -514,17 +517,13 @@ footer {
 	width: 100%; // needed for chrome
 }
 
-.hero-logo:hover,
-.hero-logo svg:hover {
-	fill: darken($white, 10%);
-}
-
 .hero-logo a {
 	display: inline-block;
 	// max-width: 33%;
 	max-width: 50%;
 	margin: $global-margin auto;
 	padding: $global-padding*2; // start doing more with a type scale and vertical rythm
+	border-radius: 5px;
 
 	@media (min-width: map-get($breakpoints, medium)) {
 		max-width: 33%;
@@ -535,6 +534,10 @@ footer {
 .hero-logo a:hover {
 	background: darken($primary-color, 10%);
 	transition: 0.5s ease;
+
+	svg {
+	fill: darken($white, 10%);
+}
 }
 
 .service-grid { // well that name is now wrong
@@ -580,9 +583,49 @@ footer {
 	align-self: stretch;
 }
 
+.header-contact--icon {
+	grid-column: 1;
+	align-self: stretch;
+	background: $black;
+
+	svg {
+		margin: $global-margin;
+		// padding: $global-padding;
+	}
+}
+
 .grid-text { //terrible names
 	grid-column: 2;
 	align-self: center;
+}
+
+.header-contact--text {
+	grid-column: 2;
+	// align-self: center;
+	// margin: $global-margin;
+	width: 100%;
+	// background: $dark-gray;
+	// padding: $global-padding;
+
+	p {
+		height: 100%; // fill the box
+
+		b {
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+
+			a {
+				// height: 100%;
+				width: calc(100% - 2rem);
+				height: calc(100% - 2rem);
+				display: flex;
+				align-items: center;
+				color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
+				padding: $global-padding;
+			}
+		}
+	}
 }
 
 .footer-icons {
@@ -590,17 +633,24 @@ footer {
 	justify-items: center; // I think this was the whole point but I can probably do it easier with a flex */
 	display: flex;
 	flex-direction: column;
+	padding: 5px;
+	border-radius: 5px;
 
 	@media (min-width: map-get($breakpoints, large)) {
 		flex-direction: row;
 	}
 }
 
+.footer-icons:hover {
+	background: $white;
+	transition: ease 0.5s; // having this on the hover is needed not to load and then transform
+}
+
 .footer-icon-icon { //terrible names
 	grid-column: 1;
 	grid-row: 1;
 	align-self: center;
-	padding: 5px;
+
 
 	@media (min-width: map-get($breakpoints, large)) {
 	justify-self: end;
@@ -611,15 +661,15 @@ footer {
 	fill: $secondary-color; // moved away from primary to pass contrast guidelines
 }
 
-.footer-icon-icon:hover {
+/* .footer-icon-icon:hover {
 	background: $light-gray;
 	border-radius: 5px;
 	transition: ease 0.5s; // having this on the hover is needed not to load and then transform
-}
+} */
 
-.footer-icon-icon svg:hover {
+/* .footer-icon-icon svg:hover {
 	fill: $secondary-color;
-}
+} */
 
 .footer-icon-text {
 	grid-column: 1;
@@ -995,20 +1045,49 @@ button {
 #header-contact--phone,
 #header-contact--place {
 	margin-bottom: $global-margin*2;
+	display: flex;
+	background: $dark-gray;
+	// @include shadow;
 }
 
 
 #header-contact--phone svg,
 #header-contact--place svg {
 	fill: $white;
-	padding: 5px;
+	// padding: 5px;
 }
 
-#header-contact--phone  svg:hover,
+/* #header-contact--phone  svg:hover,
 #header-contact--place svg:hover { // taregting the svg link
 	fill: $black;
 	background: $white;
 	transition: 0.5s ease;
+} */
+
+#header-contact--phone:hover ,
+#header-contact--place:hover {
+	// background: darken($dark-gray, 10%);
+	background: darken($secondary-color, 10%);
+	color: darken($white, 10%);
+	transition: 0.5s ease;
+
+	.header-contact--icon {
+		// background: $dark-gray;
+		background: darken($secondary-color, 15%);
+
+		a {
+			display: inline-block;
+		}
+	}
+
+	/* .header-contact--icon svg {
+		// fill: $black;
+		// fill: $white;
+	}  */
+
+/* 	.header-contact--text {
+		color: $black;
+	} */
 }
 
 .service-info {
@@ -1442,7 +1521,14 @@ button {
 } */
 
 .services-title {
-	margin: $global-margin/2 0; // dealt with by the card
+	// margin: $global-margin/2 0; // dealt with by the card // this now needs to be changed as were filling the box
+    margin: 0; // get rid of the regular margins from the h4
+
+    a {
+        padding: $global-padding;
+        display: block;
+    }
+
 }
 
 /* .blocks-gallery-grid {
@@ -1631,19 +1717,23 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 	h1 {
 		// font-size: 2.074em; // this would usually be an h2 but it's just too big on the smallest phone
 		font-size: 1.728em; // try even further down at an h3
+		line-height: 1.35em; // guess and check select some text to check its right
 
 		@media (min-width: map-get($breakpoints, medium)) {
 			font-size: 2.074em; // h2 halfway back up
+
 		}
 
 		@media (min-width: map-get($breakpoints, large)) {
 			font-size: 2.448em; // return to normal
+
 		}
 
 	}
 
 	h2 {
 		font-size: 1.728em;
+		line-height: 1.33em; // guess and check select some text to check its right
 
 		@media (min-width: map-get($breakpoints, medium)) {
 			font-size: 2.074em;

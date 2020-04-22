@@ -12,7 +12,7 @@ import Footer from "./footer"
 
 import SEO from "./seo"
 
-const Layout = ({ children, test, props, something }) => {
+const Layout = ({ children }) => {
 
   return (
     <>

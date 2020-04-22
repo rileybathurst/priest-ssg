@@ -3,9 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
 import Img from 'gatsby-image'
+import Seo from "../components/seo"
 
 const GalleryPage = ({ data }) => (
   <Layout>
+  <Seo 
+    title="Gallery - Priest Sheet Metal &amp; Plate Christchurch"
+  />
 
     <HeaderContact />
     <main className="gallery-width">

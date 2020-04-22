@@ -4,11 +4,12 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import HeaderContact from "../components/headercontact"
+import Seo from "../components/seo"
 import Img from 'gatsby-image'
 
 const ServicesPage = ({ data }) => (
   <Layout>
-
+    <Seo title ="Services - Priest Sheet Metal &amp; Plate Christchurch" />
     <HeaderContact />
 
     <main className="container">
@@ -23,7 +24,7 @@ const ServicesPage = ({ data }) => (
 
           <div className="services-text bg-light-gray shadow">
 
-            <div className="bg-secondary gp-4">
+            <div className="bg-secondary">
               <h4 className="services-title">
                   <Link to={`/services/${document.node.slug}`}>
                     {document.node.Title}
