@@ -1594,6 +1594,8 @@ button {
 /* -------------- /
 GALLERY 
 https://codepen.io/maxvoltar/pen/eYOPdMG
+
+Im still having some issues adapting this from wordpress as a gallery to something custom and better
 /* -------------- */
 
 .wp-block-gallery {
@@ -1609,17 +1611,21 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
 	padding-left: 0;
 	// align-items: stretch;
 	justify-content: space-between;
+
+	// sneaky little hack to give each item padding to use in the middle but pulled back to the sides
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
 }
 
 .blocks-gallery-item {
 
-  flex-grow: 1;
+//   flex-grow: 1;
+	flex: 1 1 15rem;
+//   margin-top: 1rem;
+  padding: $global-padding/2;
 
 
-  margin-top: 1rem;
-
-
-  @media (min-width: map-get($breakpoints, medium)) {
+/*   @media (min-width: map-get($breakpoints, medium)) {
 	  max-width: 15rem;
 
 	  max-height: 20vh;
@@ -1628,7 +1634,7 @@ https://codepen.io/maxvoltar/pen/eYOPdMG
   @media (min-width: map-get($breakpoints, large)) {
 	  max-width: 17rem;
 	  overflow: hidden;
-  }
+  } */
 }
 
 .blocks-gallery-item:nth-child(even) {
