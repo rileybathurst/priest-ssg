@@ -210,7 +210,8 @@ a:hover {
 	color: $white;
 
 	.hidden-link {
-	color: $white;
+		color: $white;
+		text-decoration: underline;
 	}
 }
 
@@ -1354,7 +1355,7 @@ button {
 .swiss {
 	margin-bottom: 1rem;
 	border: 0.5rem solid #e6e6e6;
-	width: 100%;
+	// width: 100%; this overcooks the width on small devices
 	display: flex; // im not quite sure how this is working but its needed
 
 	@media (min-width: map-get($breakpoints, medium)) {
@@ -1448,6 +1449,10 @@ button {
 	width: 100%;
 	padding-top: 1rem;
 	padding-bottom: $global-padding*2;
+
+	p {
+		padding: $global-padding;
+	}
 }
 
 .menu-small > ul {

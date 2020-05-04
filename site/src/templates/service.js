@@ -153,6 +153,10 @@ const ArticleTemplate = ({ data }) => (
 
     </article>
 
+{/*     <div className="bg-secondary">
+      <h3 className="text-center">OTHER SERVICES</h3>
+    </div> */}
+
   <Footer />
 </>
 )
