@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => (
         <ul className="text-center">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/services">Services</Link></li>
-          <li><Link to="/order">Order</Link></li>
+          {/* <li><Link to="/order">Order</Link></li> */}
           <li><Link to="/gallery">Gallery</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
@@ -32,7 +32,7 @@ const Header = ({ siteTitle }) => (
               {/* this is written kinda backwards to make the link be the full size */}
               <Link to="/"><li>Home</li></Link>
               <Link to="/services"><li>Services</li></Link>
-              <Link to="/order"><li>Order</li></Link>
+              {/* <Link to="/order"><li>Order</li></Link> */}
               <Link to="/gallery"><li>Gallery</li></Link>
               <Link to="/contact"><li>Contact</li></Link>
             </ul>

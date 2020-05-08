@@ -10,12 +10,14 @@ const IndexPage = ({ data }) => (
         <div className="hero gp-top">
 
           <div className="small-12 medium-6 cell cfimg">
-            {/* {data.allStrapiSliderone.edges.map(document => (
+            {/* Photos hero */}
+            {data.allStrapiSliderone.edges.map(document => (
               <picture>
                 <Img fluid={document.node.sliderimage.childImageSharp.fluid} className="shadow" />
               </picture>
-            ))} */}
-             <div style={{
+            ))}
+             {/* video heros
+                <div style={{
                padding: '56.25% 0 0 0',
                position: 'relative'
                }}><iframe title="hero video 1" src={"https://player.vimeo.com/video/396200971?background=1"} style={{
@@ -24,7 +26,9 @@ const IndexPage = ({ data }) => (
                  left:'0',
                  width:'100%',
                  height:'100%'
-                 }} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                 }} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                 </div><script src="https://player.vimeo.com/api/player.js"></script>
+              */}
           </div>
           
           <div>
@@ -36,12 +40,15 @@ const IndexPage = ({ data }) => (
         <div className="hero gp-top">
 
           <div className="small-12 medium-6 cell cfimg hero-order-image">
-            {/* {data.allStrapiNextslider.edges.map(document => (
+            {/* Photos Hero */}
+            {data.allStrapiNextslider.edges.map(document => (
               <picture>
                 <Img fluid={document.node.nextimage.childImageSharp.fluid} className="shadow" />
               </picture>
-            ))} */}
-            <div style={{
+            ))}
+
+            {/* Videos Hero */}
+            {/* <div style={{
                padding: '56.25% 0 0 0',
                position: 'relative'
                }}><iframe title="hero video 1" src={"https://player.vimeo.com/video/396200992?background=1"} style={{
@@ -50,7 +57,10 @@ const IndexPage = ({ data }) => (
                  left:'0',
                  width:'100%',
                  height:'100%'
-                 }} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                 }} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+            */}
           </div>
           
           <div className="small-12 medium-6 cell hero-order-text">
