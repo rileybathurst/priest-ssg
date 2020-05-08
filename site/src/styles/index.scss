@@ -1796,68 +1796,89 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 
 // forms 
 // working from this https://codepen.io/chicagoing/pen/XMXVvE
+// and then breaking it in all sorts of ways to be a grid
 
 .order-form-section {
-	position: relative;
+  // position: relative; I think this is needed as its got to fill the whole space but I might just do that with grid
+  background: #E3F6FF;
+  display: grid;
+  height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
+  margin-bottom: $global-margin*2;
 }
 
-/* label {
-	color: #919293;
-  box-sizing: border-box;
-  display: block;
-  font-size: .8125em;
-  line-height: 1;
-  overflow: hidden;
-  padding: .5em 1em;
-  pointer-events: none;
-  position: absolute;
-  text-overflow: ellipsis;
-  top: 0;
-  text-align: left;
-  transition: all .2s ease-out;
-  user-select: none;
-  white-space: nowrap;
-  width: 100%;
-  z-index: 1;
+.order-form-section label { // base state is empty
 
-  opacity: 0; // start hidden? should we start the other way and then hide it?
-  transform: translateY(3px);
+    grid-row: 1;
+    grid-column: 1;
 
-  .field--not-empty & {
-    opacity: 1; // this seems pretty much the key to this who thing
-    transform: none;
+    // box-sizing: border-box; // need to research this
+    // display: block;
+    padding: .5em 1em;
+    // pointer-events: none; // what is this?
+    // position: absolute; // this is causing first problems
+
+    // top: 0;
+    transition: all .2s ease-out;
+    // user-select: none;
+    // white-space: nowrap; // this is useful but I dont understand it yet
+    width: 100%;
+    // z-index: 1;
+
+    // opacity: 0; // start hidden? should we start the other way and then hide it?
+
+	align-self: center;
   }
-} */
 
-/* input[type="text"] {
-	background-color: #f5f5f5;
-  border: 2px solid #e9e9e9;
-  color: #333;
-  font-size: 1.3125em;
-  padding: .4761904762em;
+  .order-form-section.field--not-empty label { // no spaces so it only works with both selectors it's kinda overkill as thats the only place I use the not-empty class
+    align-self: start;
+  }
+
+  .order-form-section input[type="text"],
+  .order-form-section input[type="email"] {
+
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 100;
+
+  background: none; // remove the default styling as Im taking it up a level
+  border: none; 
+
+  padding: .5em 1em;
+  font-size: 1rem; // browser reset
+  line-height: 1rem; // browser reset
   transition: all .2s ease-out;
   width: 100%;
+
+  align-self: center;
   &:hover, &:focus {
     /* inset | offset-x | offset-y | blur-radius | spread-radius | color */
-    /* box-shadow: inset 0 0 10px 0 rgba(85, 85, 85, .1);
-    outline: 0;
+    // box-shadow: inset 0 0 10px 0 rgba(85, 85, 85, .1);
+    // outline: 0;
   }
-  .field--not-empty & {
-    padding-bottom: 2px;
-    padding-top: 18px;
-  } */
-// } */
+}
 
-// this is probably dealt with by sass but I need to check on it
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #919293;
+.order-form-section.field--not-empty input[type="text"],
+.order-form-section.field--not-empty input[type="email"] {
+//   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
+
+align-self: end;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  color: #919293;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #919293;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #919293;
-}
+
+  // this is probably dealt with by sass but I need to check on it
+  // ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  //   // color: #919293;
+  // }
+  // ::-moz-placeholder { /* Firefox 19+ */
+  //   // color: #919293;
+  // }
+  // :-ms-input-placeholder { /* IE 10+ */
+  //   // color: #919293;
+  // }
+  // :-moz-placeholder { /* Firefox 18- */
+    // color: #919293;
+  // }
+
+/*   .field--not-empty {
+    background: pink; // testing
+  } */
+
