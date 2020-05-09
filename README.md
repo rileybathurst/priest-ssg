@@ -46,4 +46,3 @@ Move the uploads gallery
 
 # Issues
 
-- With the order form if a value is added then removed the no values state doesnt come in till a single charachter is entered
