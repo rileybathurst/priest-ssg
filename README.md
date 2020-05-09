@@ -43,3 +43,7 @@ Move the uploads gallery
 ``` git commit -am "clean build" ```
 
 ``` git push --set-upstream dreamhost master --force ```
+
+# Issues
+
+- With the order form if a value is added then removed the no values state doesnt come in till a single charachter is entered

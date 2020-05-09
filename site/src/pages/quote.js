@@ -9,7 +9,8 @@ class Reservation extends React.Component {
     super(props);
     // were not using defaults with how it shows the label before a value has been entered
     this.state = {
-      // customer: 'Priest Sheetmetal',
+    //   customer: 'Priest Sheetmetal',
+      customer: '', // needs a hidden default to show nothing as the class name and pull the class I want
       // email: 'info@priestsheetmetal.co.nz',
     };
 
@@ -32,7 +33,6 @@ class Reservation extends React.Component {
     } else { // theres a problem with this if something is entered then removed the classlist doesnt update first charachter is rentered 
       test_input.classList.remove("field--not-empty");
     } 
-
     
   } // handleInputChange
 
@@ -59,6 +59,16 @@ class Reservation extends React.Component {
               type="text"
               value={this.state.customer}
               onChange={this.handleInputChange}
+            //   className={this.state.customer.active } // I think this is along the right lines
+
+       /*        className={
+                  this.state.customer + 
+                  " some"
+                } */
+
+                className={
+                    this.state.customer
+                }
             />
 
         </div>
@@ -71,7 +81,11 @@ class Reservation extends React.Component {
               name="email"
               type="email"
               value={this.state.email}
-              onChange={this.handleInputChange} />
+              onChange={this.handleInputChange} 
+              className={
+                this.state.email
+            }
+              />
 
         </div>
 
