@@ -6,28 +6,39 @@ class Reservation extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        email: 'test@m.c',
-        hasData: true // getting closer to doing something good
+        // email: 'test@m.c',
+        // hasData: true // getting closer to doing something good
       };
 
-      // this.handleInputChange = this.handleInputChange.bind(this);
-
       // these are just base create the events pieces
+      this.handleCustomerEmpty = this.handleCustomerEmpty.bind(this);
+      this.handleCustomerFull = this.handleCustomerFull.bind(this);
       this.handleValueEmpty = this.handleValueEmpty.bind(this);
       this.handleValueFull = this.handleValueFull.bind(this);
 
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-/*     handleInputChange(event) {
+  
+    handleCustomerEmpty(event) {
       const target = event.target;
       const value = target.value; // this has to have some extra if its a checkbox or other non text
       const name = target.name;
       this.setState({
-        [name]: value
+        [name]: value,
+        customerData: false
       });
-    } */
-  
+    }
+
+    handleCustomerFull(event) {
+      const target = event.target;
+      const value = target.value; // this has to have some extra if its a checkbox or other non text
+      const name = target.name;
+      this.setState({
+        [name]: value,
+        customerData: true
+      });
+    }
+   
     handleValueEmpty(event) {
       const target = event.target;
       const value = target.value; // this has to have some extra if its a checkbox or other non text
@@ -57,13 +68,26 @@ class Reservation extends React.Component {
     render() {
         // before the return
         // https://reactjs.org/docs/conditional-rendering.html
+        const customerData = this.state.customerData;
+        let customer;
+
         const hasData = this.state.hasData;
         let input;
 
-        if (hasData) {
-            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueEmpty} className="field--not-empty" />;
+        if (this.state.customer !== '' ) {
+            customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerEmpty} className="field--not-empty" />;
+            console.log('customer full');
         } else {
-            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueFull} />;
+            customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerFull} />;
+            console.log('customer empty');
+        }
+
+        if (this.state.email !== '') {
+            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueFull} className="field--not-empty" hasData="true" />;
+            // console.log('data full');
+        } else {
+            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueEmpty} hasData="false" />;
+            // console.log('data empty');
         }
 
       return (
@@ -73,7 +97,14 @@ class Reservation extends React.Component {
             <label>
               Name:
               </label>
-              {input}
+              {customer}
+          </div>
+ 
+          <div className="order-form-section test-input">
+            <label>
+              email:
+              </label>
+              {input} {/* needs to be the same in both */}
           </div>
 
           <div className="order-form-submit">
