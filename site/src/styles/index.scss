@@ -1838,6 +1838,8 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 // https://stackoverflow.com/questions/36355486/is-there-a-css-selector-for-element-without-any-class
 
 .order-form-section input[class=""] {
+	// https://caniuse.com/#search=attribute%20class
+	// 53% worldwide coverage
 	// background-color: pink; // only shows pink when there isnt a class
 	align-self: center;
   }
