@@ -7,7 +7,8 @@ class Reservation extends React.Component {
       super(props);
       this.state = {
         // email: 'test@m.c',
-        // hasData: true // getting closer to doing something good
+        customerData: false, // start in the negative this isnt quite working yet
+        hasData: false
       };
 
       // these are just base create the events pieces
@@ -68,26 +69,28 @@ class Reservation extends React.Component {
     render() {
         // before the return
         // https://reactjs.org/docs/conditional-rendering.html
-        const customerData = this.state.customerData;
+        // const customerData = this.state.customerData; // I dont think this is needed anymore
+        // this.setState({customerData: false}); //try and start as a default
         let customer;
 
-        const hasData = this.state.hasData;
+        // const hasData = this.state.hasData;
         let input;
 
-        if (this.state.customer !== '' ) {
-            customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerEmpty} className="field--not-empty" />;
-            console.log('customer full');
+        // if (this.state.customer !== '' || this.state.customer === undefined ) {
+        if (this.state.customer === '' || this.state.customer === undefined ) { // flipped these to get the default working
+          customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerFull} customerData={false} />;
+          console.log('customer empty');
         } else {
-            customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerFull} />;
-            console.log('customer empty');
+          customer = <input name="customer" type="text" value={this.state.customer} onChange={this.handleCustomerEmpty} className="field--not-empty" customerData={true} />;
+          console.log('customer full');
         }
 
-        if (this.state.email !== '') {
-            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueFull} className="field--not-empty" hasData="true" />;
-            // console.log('data full');
+        if (this.state.email === '' || this.state.email === undefined) {
+          input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueEmpty} hasData="false" />;
+          // console.log('data empty');
         } else {
-            input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueEmpty} hasData="false" />;
-            // console.log('data empty');
+          input = <input name="email" type="email" value={this.state.email} onChange={this.handleValueFull} className="field--not-empty" hasData="true" />;
+          // console.log('data full');
         }
 
       return (
