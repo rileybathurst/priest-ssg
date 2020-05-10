@@ -1804,6 +1804,14 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   display: grid;
   height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
   margin-bottom: $global-margin*2;
+	// width: calc(100% - 2rem);
+	// border: 2px solid #60BDE9;
+	border: 2px solid lighten($primary-color, 20%);
+	border-radius: 4px;
+}
+
+.order-form-section.field--not-empty {
+	border-color: $primary-color;
 }
 
 .order-form-section label { // base state is empty
@@ -1821,7 +1829,7 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
     transition: all .2s ease-out;
     // user-select: none;
     // white-space: nowrap; // this is useful but I dont understand it yet
-    width: 100%;
+    width: calc(100% - 2rem);
     // z-index: 1;
 
     // opacity: 0; // start hidden? should we start the other way and then hide it?
@@ -1837,19 +1845,21 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
     // this is really hacky and gross way of doing this
 // https://stackoverflow.com/questions/36355486/is-there-a-css-selector-for-element-without-any-class
 
-.order-form-section input[class=""] {
+// .order-form-section input[class=""] { // wierd hacky kinda way of doing this with no react
 	// https://caniuse.com/#search=attribute%20class
 	// 53% worldwide coverage
 	// background-color: pink; // only shows pink when there isnt a class
-	align-self: center;
-  }
+// 	align-self: center;
+
+//   }
 // needs a default of ""
 
 
 
 
   .order-form-section input[type="text"],
-  .order-form-section input[type="email"] {
+  .order-form-section input[type="email"],
+  .order-form-section input[type="number"] {
 
   grid-row: 1;
   grid-column: 1;
@@ -1862,7 +1872,7 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   font-size: 1rem; // browser reset
   line-height: 1rem; // browser reset
   transition: all .2s ease-out;
-  width: 100%;
+  width: calc(100% - 2rem);
 
 //   align-self: center;
   &:hover, &:focus {
@@ -1872,13 +1882,88 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   }
 }
 
+.order-form-section input[type="text"],
+.order-form-section input[type="email"],
+.order-form-section input[type="number"] {
+//   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
+
+align-self: stretch;
+}
+
+
 // .order-form-section.field--not-empty input[type="text"],
 // .order-form-section.field--not-empty input[type="email"] {
-.order-form-section input[type="text"],
-.order-form-section input[type="email"] {
+.order-form-section.field--not-empty input[type="text"],
+.order-form-section.field--not-empty input[type="email"],
+.order-form-section.field--not-empty input[type="number"] {
 //   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
 
 align-self: end;
+}
+
+.order-form-select {
+	margin-bottom: $global-margin*2;
+}
+
+.order-form-select label {
+	padding: $global-padding;
+	padding-top: 0; // sort of hacky
+	display: inline-block;
+}
+
+// https://www.filamentgroup.com/lab/select-css.html
+.select-css {
+	display: block;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 700;
+	color: #444;
+	line-height: 1.3;
+	padding: $global-padding;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	border: 2px solid lighten($primary-color, 20%);
+	// box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: 4px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background: #E3F6FF;
+	// background-repeat: no-repeat, repeat;
+	// background-position: right .7em top 50%, 0 0;
+	// background-size: .65em auto, 100%;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
+
+.order-form-slider {
+	margin-bottom: $global-margin*2;
+}
+
+.order-form-slider label {
+	padding: $global-padding;
+	display: inline-block;
+}
+
+.order-form-slider input[type="range"] {
+	display: block;
+	width: 100%;
 }
 
   // this is probably dealt with by sass but I need to check on it
@@ -1899,5 +1984,8 @@ align-self: end;
     background: pink; // testing
   } */
 
-
-
+  .order-form-submit input[type="submit"] {
+	  margin-bottom: $global-margin*3;
+	  border-radius: 2px; // should this be global
+	  @extend button
+  }
