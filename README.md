@@ -46,3 +46,4 @@ Move the uploads gallery
 
 # Issues
 
+- firefox ios doesnt handle the form input

@@ -1987,5 +1987,6 @@ align-self: end;
   .order-form-submit input[type="submit"] {
 	  margin-bottom: $global-margin*3;
 	  border-radius: 2px; // should this be global
+	  -webkit-appearance: none; // reset browser defaults
 	  @extend button
   }
