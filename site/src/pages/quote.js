@@ -52,7 +52,7 @@ class Reservation extends React.Component {
       // nothing gets submitted it just opens a new window
       // %0D%0A is the break
       // window.open doesnt work on firefox ios
-      window.open('mailto:infor@priestsheetmetal.co.nz?cc=' + this.state.email + '&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry ' + this.state.customer + ',%0D%0AWe will get back you asap with your enquiry about' + this.state.metal + ',%0D%0A' + this.state.thickness + 'mm thick%0D%0AWith a ' + this.state.finish + 'finish,%0D%0AThanks You');
+      window.open('mailto:info@priestsheetmetal.co.nz?cc=' + this.state.email + '&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry ' + this.state.customer + ',%0D%0AWe will get back you asap with your enquiry about' + this.state.metal + ',%0D%0A' + this.state.thickness + 'mm thick%0D%0AWith a ' + this.state.finish + 'finish,%0D%0AThanks You');
       // location.href=('mailto:infor@priestsheetmetal.co.nz?cc=' + this.state.email + '&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry ' + this.state.customer + ',%0D%0AWe will get back you asap with your enquiry about ' + this.state.metal + ',%0D%0A' + this.state.thickness + 'mm thick%0D%0AWith a ' + this.state.finish + 'finish,%0D%0AThanks You');
       event.preventDefault();
     }
