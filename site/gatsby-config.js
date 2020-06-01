@@ -4,6 +4,7 @@ module.exports = {
     titleTemplate: "%s",
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
     url: 'https://priestsheetmetal.co.nz/',
+    siteUrl: `https://priestsheetmetal.co.nz/`,
     image: 'src/images/PriestSheetMetal&PlateChristchurch-blue.jpg', // this could probably be a specific image once I know if it works
     openingHours: 'Mo, Tu, We, Th, Fr 07:00-17:00',
     telephone: '(03) 366 9818',
@@ -76,6 +77,7 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    `gatsby-plugin-sitemap`,
   ],
 }

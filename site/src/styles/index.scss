@@ -213,6 +213,10 @@ a:hover {
 		color: $white;
 		text-decoration: underline;
 	}
+
+	.hidden-link:hover {
+		color: darken($white, 10%);
+	}
 }
 
 .primary-text {
@@ -389,9 +393,10 @@ h1, h2, h3, h4, h5, h6 {
 } */
 
 nav, .menu-primary-container, .force-menu-style {
-	font-weight: bold;
+	// font-weight: bold;
 	font-size: 1.2em;
-	font-family: $header-font-family;
+	// font-family: $header-font-family;
+	letter-spacing: 0.1rem;
 }
 
 .menu-primary-container > ul > a,
@@ -511,6 +516,9 @@ footer {
 .hero-logo {
 	display: grid;
 	place-items: center;
+
+  z-index: 3; // sliding logo
+  position: relative; // needed for z-index
 }
 
 .hero-logo svg {
@@ -1455,6 +1463,15 @@ button {
 	}
 }
 
+#menu_toggle {
+  z-index: 2; // sliding menu
+  position: relative; // needed for z-index
+
+  display: grid;
+
+
+}
+
 .menu-small > ul {
 	display: flex;
 	flex-direction: column;
@@ -1466,18 +1483,27 @@ button {
 	cursor: pointer;
 	padding-top: $global-padding;
 	padding-bottom: $global-padding;
+	transition: 1s ease;
 }
 
 .small_menu--opener:hover {
 	// background: $primary-color; // this is just making it up as I go
 	// background: color.scale($secondary-color, lightness: -20%);
 	color: darken( $white, 10%);
-	background: darken( $secondary-color, 10% )
+	background: darken( $secondary-color, 10% );
+
 }
 
 #menu_small {
-	background: $secondary-color;
+	background: darken($secondary-color, 10%);
 
+	// sliding menu
+	display: inline-block;
+	transition: 3s ease; // sliding menu
+  position: absolute;
+  z-index: 1; // check its above the gallery on the front page
+  margin-bottom: 0;
+  width: 100%;
 }
 
 #menu_small ul {
@@ -1495,10 +1521,15 @@ button {
 	padding-bottom: 0.1rem; // try match the default styling I should work on this
 }
 
+#menu_small li:last-child a {
+	border-bottom: none;
+}
+
 #menu_small a {
 	padding: $global-padding;
 	display: block;
-	background: $primary-color;
+	// background: $primary-color;
+	border-bottom: darken($primary-color, 20%) 1px solid;
 	color: $white;
 	margin: 5px;
 }
@@ -1509,12 +1540,68 @@ button {
 }
 
 .active {
-	display: inline;
+  // display: inline; // jump to version
+  margin-top: 4rem; // enough to show the home line
 }
 
+
+
+
+
+
 .inactive {
-	display: none;
+	// display: none; // jump to version
+  margin-top: calc(-100% + 4rem); // this is too much
 }
+
+.small_menu--opener,
+.small_menu--icon {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+}
+
+.small_menu--icon {
+  justify-self: end;
+  margin-right: $global-margin;
+  transition: 2s ease; // the slide in on load is kinda nice but maybe overkill
+  // background: tomato;
+  cursor: pointer; // match the link
+}
+
+.small_menu--icon span {
+  transition: 0.5s ease; // the slide in on load is kinda nice but maybe overkill
+}
+
+.small_menu--icon-topline,
+.small_menu--icon-bottomline {
+  width: 1rem;
+  height: 0.25rem;
+  background: $white;
+  display: block;
+  transform: rotate(0deg);
+  top: 0;
+  position: relative;
+}
+
+.small_menu--icon-bottomline {
+  margin-top: 0.5rem;
+  // background: tomato; // which line is which
+}
+
+.active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-topline {
+  transform: rotate(45deg);
+  top: 0.35rem;
+}
+
+.active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-bottomline {
+  transform: rotate(-45deg);
+  top: -0.35rem;
+}
+
+
+
+
 
 .hide-for-medium {
 	display: block;
@@ -1875,11 +1962,11 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   width: calc(100% - 2rem);
 
 //   align-self: center;
-  &:hover, &:focus {
-    /* inset | offset-x | offset-y | blur-radius | spread-radius | color */
+/*   &:hover, &:focus {
+    // inset | offset-x | offset-y | blur-radius | spread-radius | color
     // box-shadow: inset 0 0 10px 0 rgba(85, 85, 85, .1);
     // outline: 0;
-  }
+  } */
 }
 
 .order-form-section input[type="text"],

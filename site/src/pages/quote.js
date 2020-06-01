@@ -68,16 +68,8 @@ class Reservation extends React.Component {
         let finish;
 
         // Im fine with doubling these its pretty minor as I need to adjust a couple things
-        if (this.state.customer === '' || this.state.customer === undefined ) { // flipped these to get the default working
-          customer = 
-          <div className="order-form-section test-input">
-            <label>
-              Name:
-            </label>
-            <input name="customer" type="text" value={this.state.customer} onChange={this.handleValueEmpty} customerData={false} />
-          </div>;
-          // console.log('customer empty');
-        } else {
+        // if (this.state.customer === '' || this.state.customer === undefined ) { // flipped these to get the default working
+        if (this.state.customer) {
           customer = 
           <div className="order-form-section test-input field--not-empty">
             <label>
@@ -85,8 +77,21 @@ class Reservation extends React.Component {
             </label>
             <input name="customer" type="text" value={this.state.customer} onChange={this.handleValueEmpty} customerData={false} />
           </div>;
-          // console.log('customer full');
+          console.log('customer full');
+        } else {
+          customer = 
+          <div className="order-form-section test-input">
+            <label>
+              Name:
+            </label>
+            <input name="customer" type="text" value={this.state.customer} onChange={this.handleValueEmpty} customerData={false} />
+          </div>;
+          console.log('customer empty');
         }
+
+
+
+
 
         if (this.state.email === '' || this.state.email === undefined) {
           input = 

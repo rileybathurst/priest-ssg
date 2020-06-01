@@ -11,10 +11,6 @@ const Header = ({ siteTitle }) => (
         <Logo />
       </div>
 
-      <div className="hide-for-medium bg-secondary shadow-darker text-center">
-        <SmallMenu />
-      </div>
-
       <nav id="menu_small" className="menu-small hide-for-print inactive">
         <ul className="text-center">
           <li><Link to="/">Home</Link></li>
@@ -24,6 +20,10 @@ const Header = ({ siteTitle }) => (
           <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
+
+      <div id="menu_toggle" className="hide-for-medium bg-secondary shadow-darker text-center">
+        <SmallMenu />
+      </div>
 
       <div className="bg-secondary show-for-medium shadow"> {/* medium up navigation */}
         <nav>
